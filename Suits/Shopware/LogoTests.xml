@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Shopware Novalnet Logo Tests"  verbose="1"  >
+
+	<listeners>
+		<listener class-name="com.nn.listeners.TestListeners" />
+	</listeners>
+
+
+	<test name = "Logo Validation">
+		<classes>
+			<class name = "com.nn.testcase.shopware.VerifyPaymentLogoExist"/>
+			<class name = "com.nn.testcase.shopware.VerifyPaymentLogoNotExist"/>
+		</classes>
+	</test>
+
+
+
+</suite>
+
+<!-- ~/Downloads/allure-commandline-2.9.0/allure-2.9.0/bin/allure serve /var/www/nageshwaran_k/workspace/GitNovalet/AutomationPaymentTests/target/surefire-reports -->

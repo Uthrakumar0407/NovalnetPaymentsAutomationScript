@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Novalnet Credit Card Payment Tests" verbose="1" preserve-order="true">
+	<listeners>
+		<listener class-name="io.qameta.allure.testng.AllureTestNg" />
+		<listener class-name="com.nn.listeners.AllureScreenShotListener" />
+		<listener class-name="com.nn.listeners.TestListeners" />
+		<listener class-name="org.testng.reporters.XMLReporter" />
+		<listener class-name="org.testng.reporters.FailedReporter" />
+	</listeners>
+
+	<test name = "CreditCard Payment Test">
+	<parameter name="BROWSER" value="chrome"/>
+	<parameter name ="username" value = "cc"></parameter>
+			<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.CreditCardPaymentTests"/>
+		</classes>
+	</test>
+
+</suite>
+
+<!-- ~/Downloads/allure-commandline-2.9.0/allure-2.9.0/bin/allure serve /var/www/nageshwaran_k/workspace/GitNovalet/AutomationPaymentTests/target/surefire-reports -->

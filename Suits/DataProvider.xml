@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Admin Portal Tests" verbose="1"  parallel="tests" thread-count="2"  data-provider-thread-count="10">
+	<listeners>
+		<listener class-name="com.nn.listeners.TestListeners" />
+	</listeners>
+	<test name = "Admin Portal Payment Plugin Configuration Allowed Countries-Currencies Test">
+
+		<classes>
+			<class name = "com.nn.testcase.Magento.AllowedCountriesCurrenciesValidationTest"/>
+		</classes>
+	</test>
+
+	<test name = "Admin Portal Payment Plugin Configuration Non Allowed Countries-Currencies Test">
+
+		<classes>
+			<class name = "com.nn.testcase.Magento.NonAllowedCountriesCurrenciesValidationTest"/>
+		</classes>
+	</test>
+
+</suite>

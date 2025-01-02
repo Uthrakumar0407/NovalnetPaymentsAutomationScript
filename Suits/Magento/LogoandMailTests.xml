@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Magento Novalnet Mail and Logo Payment Tests"  verbose="1"  >
+
+	<listeners>
+		<listener class-name="com.nn.listeners.TestListeners" />
+	</listeners>
+
+	<test name = "Logo Validation - Enable">
+		<classes>
+			<class name = "com.nn.testcase.Magento.VerifyPaymentLogoExist"/>
+
+		</classes>
+	</test>
+
+	<test name = "Logo Validation - Disable">
+		<classes>
+
+			<class name = "com.nn.testcase.Magento.VerifyPaymentLogoNotExist"/>
+		</classes>
+	</test>
+
+
+	<test name = "Email Validation" preserve-order="true">
+		<classes>
+			<class name = "com.nn.testcase.Magento.VerifyMailOrders"/>
+		</classes>
+	</test>
+
+
+
+
+</suite>
+
+<!-- ~/Downloads/allure-commandline-2.9.0/allure-2.9.0/bin/allure serve /var/www/nageshwaran_k/workspace/GitNovalet/AutomationPaymentTests/target/surefire-reports -->

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name ="DB Tests" verbose="1" >
+
+
+	<test name = "DB">
+
+		<classes>
+		 <class name="com.nn.testcase.TestDB">
+					<methods>
+						<include name="testDBConnect"/>
+
+
+					</methods>
+		 </class>
+
+		</classes>
+	</test>
+
+
+</suite>
+
+<!-- ~/Downloads/allure-commandline-2.9.0/allure-2.9.0/bin/allure serve /var/www/nageshwaran_k/workspace/GitNovalet/AutomationPaymentTests/target/surefire-reports -->

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Shopware Novalnet DirectDebitACH Payment Tests"  verbose="1"  >
+
+    <listeners>
+        <listener class-name="com.nn.listeners.TestListeners" />
+    </listeners>
+
+
+
+    <test name = "DirectDebitACH Payments">
+        <classes>
+            <class name = "com.nn.testcase.shopware.DirectDebitACH"/>
+        </classes>
+    </test>
+
+    <test name = "DirectDebitACH DeActivatePayment">
+        <classes>
+            <class name = "com.nn.testcase.shopware.verifyDeactivatePayment">
+                <methods>
+                    <include name="deactivatePaymentVerifyCheckoutDirectDebitACH"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name = "DirectDebitACH Logo Enable">
+        <classes>
+            <class name = "com.nn.testcase.shopware.VerifyPaymentLogoExist">
+                <methods>
+                    <include name="verifyPaymentLogoDirectDebitACH"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name = "DirectDebitACH Logo Disable">
+        <classes>
+            <class name = "com.nn.testcase.shopware.VerifyPaymentLogoNotExist">
+                <methods>
+                    <include name="verifyPaymentLogoDirectDebitACH"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name = "DirectDebitACH Verify Email">
+        <classes>
+            <class name = "com.nn.testcase.shopware.VerifyEmailReceived">
+                <methods>
+                    <include name="mailVerifyOrderDirectDebitACH"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+
+        <!-- ~/Downloads/allure-commandline-2.9.0/allure-2.9.0/bin/allure serve /var/www/nageshwaran_k/workspace/GitNovalet/AutomationPaymentTests/target/surefire-reports -->

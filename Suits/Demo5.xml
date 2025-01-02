@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name ="PayPal suite " verbose="1" parallel="tests" thread-count="1">
+
+	<listeners>
+		<listener class-name="com.nn.listeners.TestListeners" />
+	</listeners>
+
+	<test name = "Bancontact Transaction Tests ">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "invoice"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.InvoiceAndGuaranteePaymentTests">
+				<methods>
+					<include name="guestOrder"/>
+				</methods>
+
+
+			</class>
+		</classes>
+	</test>
+
+	<!--<test name = "Bancontact Transaction Tests ">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "prepayment"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.BanContactPayPaymentTests">
+
+
+			</class>
+		</classes>
+	</test>
+	--><!--<test name = "Abort Transaction Tests - WeChatPay">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "wechatpay"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.WeChatPayPaymentTests">
+				<methods>
+					<include name="transactionAbort"/>
+
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+	<test name = "Abort Transaction Tests - AliPay">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "allipay"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.AliPayPaymentTests">
+				<methods>
+					<include name="transactionAbort"/>
+
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+	<test name = "Abort Transaction Tests - EPS">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "eps"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.EPSPayPaymentTests">
+				<methods>
+					<include name="transactionAbort"/>
+
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name = "Abort Transaction Tests - Giropay">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "giropay"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.GiroPayPaymentTests">
+				<methods>
+					<include name="transactionAbort"/>
+
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name = "Abort Transaction Tests - PayPal">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "paypal"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.PayPalPaymentTests">
+				<methods>
+					<include name="transactionAbort"/>
+
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name = "Abort Transaction Tests - iDeal">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "ideal"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.iDealPaymentTests">
+				<methods>
+					<include name="transactionAbort"/>
+
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name = "Abort Transaction Tests - Sofort">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "sofort"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.SofortPaymentTests">
+				<methods>
+					<include name="transactionAbort"/>
+
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name = "Abort Transaction Tests - Online Bank Transfer">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "onlinebanktransfer"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.OnlineBankTransferPaymentTests">
+				<methods>
+					<include name="transactionAbort"/>
+
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name = "Abort Transaction Tests - Trustly">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "trustly"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.TrustlyPaymentTests">
+				<methods>
+					<include name="transactionAbort"/>
+
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name = "Abort Transaction Tests - PostFinance">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "postfinance"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.PostFinancePaymentTests">
+				<methods>
+					<include name="transactionAbort"/>
+
+				</methods>
+			</class>
+		</classes>
+	</test>
+-->
+
+</suite>
+
+<!-- ~/Downloads/allure-commandline-2.9.0/allure-2.9.0/bin/allure serve /var/www/nageshwaran_k/workspace/GitNovalet/AutomationPaymentTests/target/surefire-reports -->

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Magento Novalnet Redirect Payment Tests"  verbose="1" parallel="tests" preserve-order="true" thread-count="3" >
+
+	<listeners>
+		<listener class-name="com.nn.listeners.TestListeners" />
+	</listeners>
+
+
+	<test name = "Blik">
+		<classes>
+			<class name = "com.nn.testcase.Magento.Blik"/>
+		</classes>
+	</test>
+
+	<test name = "iDeal">
+		<classes>
+			<class name = "com.nn.testcase.Magento.iDeal"/>
+		</classes>
+	</test>
+
+	<test name = "Alipay">
+		<classes>
+			<class name = "com.nn.testcase.Magento.Alipay"/>
+		</classes>
+	</test>
+
+	<test name = "WeChatPay">
+		<classes>
+			<class name = "com.nn.testcase.Magento.WeChatPay"/>
+		</classes>
+	</test>
+
+	<test name = "GiroPay">
+		<classes>
+			<class name = "com.nn.testcase.Magento.GiroPay"/>
+		</classes>
+	</test>
+
+	<test name = "OnlineBankTransfer">
+		<classes>
+			<class name = "com.nn.testcase.Magento.OnlineBankTransfer"/>
+		</classes>
+	</test>
+
+	<test name = "Bancontact">
+		<classes>
+			<class name = "com.nn.testcase.Magento.Bancontact"/>
+		</classes>
+	</test>
+
+
+	<test name = "Trustly">
+		<classes>
+			<class name = "com.nn.testcase.Magento.Trustly"/>
+		</classes>
+	</test>
+
+	<test name = "Sofort">
+		<classes>
+			<class name = "com.nn.testcase.Magento.Sofort"/>
+		</classes>
+	</test>
+
+	<test name = "PayPal">
+		<classes>
+			<class name = "com.nn.testcase.Magento.PayPal"/>
+		</classes>
+	</test>
+
+	<test name = "PrePayment">
+		<classes>
+			<class name = "com.nn.testcase.Magento.PrePayment"/>
+		</classes>
+	</test>
+
+	<test name = "CashPayment">
+		<classes>
+			<class name = "com.nn.testcase.Magento.CashPayment"/>
+		</classes>
+	</test>
+
+
+	<test name = "EPS">
+		<classes>
+			<class name = "com.nn.testcase.Magento.eps"/>
+		</classes>
+	</test>
+
+	<test name = "Przelewy24">
+		<classes>
+			<class name = "com.nn.testcase.Magento.Przelewy24"/>
+		</classes>
+	</test>
+
+
+
+
+</suite>
+
+<!-- ~/Downloads/allure-commandline-2.9.0/allure-2.9.0/bin/allure serve /var/www/nageshwaran_k/workspace/GitNovalet/AutomationPaymentTests/target/surefire-reports -->

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Shopware Guarentee Payment Tests"  verbose="2"  >
+
+	<listeners>
+		<listener class-name="com.nn.listeners.TestListeners" />
+	</listeners>
+
+	<test name = "Credit Card Payment Test">
+		<classes>
+			<class name = "com.nn.testcase.shopware.CreditCard">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+		</classes>
+	</test>
+
+	<test name = "Sepa Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.DirectDebitSepa">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "Invoice Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Invoice">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = " Prepayment Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Prepayment">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "Guarantee SEPA Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.GuaranteeSepa">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "Guarantee Invoice Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.GuaranteeInvoice">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "Direct Debit ACH Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.DirectDebitACH">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "Cashpayment Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Cashpayment">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "Online Bank Transfer Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.OnlineBankTransfer">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "PayPal Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.PayPal">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "Instalment Invoice Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.InstalmentInvoice">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "Instalment Sepa Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.InstalmentSepa">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "Multibanco Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Multibanco">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "iDeal Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.iDeal">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "Sofort Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Sofort">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+<test name = "eps Payment Tests">
+<classes>
+	<class name = "com.nn.testcase.shopware.eps">
+		<methods>
+			<include name="firstOrder"/>
+		</methods>
+
+	</class>
+
+</classes>
+</test>
+	<test name = "Giropay Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Giropay">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "MBWay Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.MBWay">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "Payconiq Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Payconiq">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "PostFinance Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.PostFinance">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "Przelewy24 Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Przelewy24">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "Trustly Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Trustly">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "WeChatPay Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.WeChatPay">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "Alipay Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Alipay">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+	<test name = "Blik Payment Tests">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Blik">
+				<methods>
+					<include name="firstOrder"/>
+				</methods>
+
+			</class>
+
+		</classes>
+	</test>
+
+
+
+
+
+</suite>
+
+		<!-- ~/Downloads/allure-commandline-2.9.0/allure-2.9.0/bin/allure serve /var/www/nageshwaran_k/workspace/GitNovalet/AutomationPaymentTests/target/surefire-reports -->

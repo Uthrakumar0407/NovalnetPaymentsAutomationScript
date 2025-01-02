@@ -1,0 +1,45 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Parallel Testing with chrome and firefox" parallel = "tests">
+
+	<test name = "ChromeTesting">
+	<parameter name="BROWSER" value="chrome"/>
+		
+		<classes>
+			<class name = "com.nn.testcase.CreditCard">
+			<parameter name ="username" value = "admin"></parameter>
+			<parameter name ="password" value = "wordpress"></parameter>
+			
+			<methods>
+			<include name ="setGlobalConfiguration" />
+			<include name ="firstTestOrder" />
+			<include name ="secondTestOrder" />
+			<include name ="thirdTestOrder" />
+			</methods>
+			
+			</class>		
+		</classes>
+		
+	</test>
+	
+	<test name = "FirefoxTesting">
+	<parameter name="BROWSER" value="firefox"/>
+		
+		<classes>
+			<class name = "com.nn.testcase.CreditCard">
+			<parameter name ="username" value = "admin2"></parameter>
+			<parameter name ="password" value = "woocommerce"></parameter>
+			
+			<methods>
+			<include name ="setGlobalConfiguration" />
+			<include name ="firstTestOrder" />
+			<include name ="secondTestOrder" />
+			<include name ="thirdTestOrder" />
+			</methods>
+			
+			
+			</class>		
+		</classes>
+	</test>
+	
+</suite>

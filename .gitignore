@@ -1,0 +1,8 @@
+target/
+ExtentReports/
+logs/
+.idea/
+.allure/
+.settings/
+tokens/
+chrome-profile/

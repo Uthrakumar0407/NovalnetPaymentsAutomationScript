@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Shopware Novalnet Redirect Payment Tests"  verbose="1" parallel="tests" preserve-order="true" thread-count="3" >
+
+	<listeners>
+		<listener class-name="com.nn.listeners.TestListeners" />
+	</listeners>
+
+
+	<test name = "iDeal">
+		<classes>
+			<class name = "com.nn.testcase.shopware.iDeal"/>
+		</classes>
+	</test>
+
+	<test name = "Alipay">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Alipay"/>
+		</classes>
+	</test>
+
+	<test name = "WeChatPay">
+		<classes>
+			<class name = "com.nn.testcase.shopware.WeChatPay"/>
+		</classes>
+	</test>
+
+	<test name = "GiroPay">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Giropay"/>
+		</classes>
+	</test>
+
+	<test name = "OnlineBankTransfer">
+		<classes>
+			<class name = "com.nn.testcase.shopware.OnlineBankTransfer"/>
+		</classes>
+	</test>
+
+	<test name = "Bancontact">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Bancontact"/>
+		</classes>
+	</test>
+
+
+	<test name = "Trustly">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Trustly"/>
+		</classes>
+	</test>
+
+	<test name = "Sofort">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Sofort"/>
+		</classes>
+	</test>
+
+	<test name = "PayPal">
+		<classes>
+			<class name = "com.nn.testcase.shopware.PayPal"/>
+		</classes>
+	</test>
+
+	<test name = "PrePayment">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Prepayment"/>
+		</classes>
+	</test>
+
+	<test name = "CashPayment">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Cashpayment"/>
+		</classes>
+	</test>
+
+
+	<test name = "EPS">
+		<classes>
+			<class name = "com.nn.testcase.shopware.eps"/>
+		</classes>
+	</test>
+
+	<test name = "Przelewy24">
+		<classes>
+			<class name = "com.nn.testcase.shopware.Przelewy24"/>
+		</classes>
+	</test>
+
+
+
+
+</suite>
+
+<!-- ~/Downloads/allure-commandline-2.9.0/allure-2.9.0/bin/allure serve /var/www/nageshwaran_k/workspace/GitNovalet/AutomationPaymentTests/target/surefire-reports -->

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Homepage Tests" verbose="1" parallel="tests" preserve-order="true" data-provider-thread-count="4">
+	<listeners>
+		<listener class-name="com.nn.listeners.TestListeners" />
+	</listeners>
+
+	<test name = "brokenlink">
+		<classes>
+			<class name = "com.nn.testcase.homepage.HomePageTest">
+				<methods>
+					<include name="brokenLink"/>
+				</methods>
+
+			</class>
+		</classes>
+	</test>
+	<!--<test name = "brokenlinkss">
+		<classes>
+			<class name = "com.nn.testcase.homepage.HomePageTest">
+				<methods>
+					<include name="H1TagChecker"/>
+				</methods>
+
+			</class>
+		</classes>
+	</test>-->
+
+
+
+
+</suite>
+
+

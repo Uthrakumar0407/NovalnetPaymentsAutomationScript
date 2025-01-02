@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Novalnet Payment Tests" verbose="1" parallel="tests" preserve-order="true" thread-count="2">
+	<listeners>
+		<listener class-name="io.qameta.allure.testng.AllureTestNg" />
+		<listener class-name="com.nn.listeners.AllureScreenShotListener" />
+		<listener class-name="com.nn.listeners.TestListeners" />
+	</listeners>
+
+	<test name = "Direct Debit SEPA and Gurantee PaymentTests">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "sepa"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.InvoiceAndGuaranteePaymentTests">
+			</class>
+			<class name = "com.nn.testcase.InvoiceGuaranteePaymentTests">
+			</class>
+		</classes>
+	</test>
+<!--
+	<test name = "iDeal Payment Test">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "admin"></parameter>
+			<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.iDealPaymentTests">
+			</class>
+		</classes>
+	</test>
+	
+
+	<test name = "Prepayment Payment Test">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "admin4"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.PrepaymentTests">
+			</class>
+		</classes>
+	</test>
+
+	<test name = "PayPal Payment Test">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "paypal"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.PayPalPaymentTests">
+			</class>
+		</classes>
+	</test>
+
+	<test name = "On Cash Payment Test">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "oncash"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.CashpaymentTests">
+			</class>
+		</classes>
+	</test>
+
+	<test name = "Sofort Payment Test">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "sofort"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.SofortPaymentTests">
+			</class>
+		</classes>
+	</test>
+
+	<test name = "Online Bank Transfer Payment Test">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "onlinebanktransfer"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.OnlineBankTransferPaymentTests">
+			</class>
+		</classes>
+	</test>
+-->
+
+	<!--<test name = "GiroPay Payment Test">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "giropay"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.GiroPayPaymentTests">
+			</class>
+		</classes>
+	</test>-->
+
+
+	<!--<test name = "Post Finance Payment Test">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "postfinance"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.PostFinancePaymentTests">
+			</class>
+		</classes>
+	</test>-->
+	<!--<test name = "Direct Debit SEPA PaymentTests">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "sepa"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.DirectDebitSEPAAndGuaranteePaymentTests">
+			</class>
+		</classes>
+	</test>
+
+	<test name = "Invoice Payment Test">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "invoice"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.InvoiceAndGuaranteePaymentTests">
+			</class>
+		</classes>
+	</test>
+
+	<test name = "Subscription Payment Test">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "admin5"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.SubscriptionPaymentTests">
+			</class>
+		</classes>
+	</test>
+
+	<test name = "CreditCard Payment Test">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "admin3"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.CreditCardPaymentTests"/>
+		</classes>
+	</test>
+-->
+</suite>
+
+<!-- ~/Downloads/allure-commandline-2.9.0/allure-2.9.0/bin/allure serve /var/www/nageshwaran_k/workspace/GitNovalet/AutomationPaymentTests/target/surefire-reports -->

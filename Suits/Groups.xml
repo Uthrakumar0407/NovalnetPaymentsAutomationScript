@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Group by OrderFlow" verbose="1">
+	
+	<test name = "SubscriptionOrderFlow">
+	<parameter name="BROWSER" value="chrome"/>
+		<groups>
+			<run>
+			<!-- flow : place orders with only extensions  --> 
+<!-- 				<include name = "flow"/> -->
+				                   
+			<!-- order : place  orders with extensions and callback  -->
+<!-- 				<include name = "order"/> -->
+				
+			<!-- subscription : place  orders with subscription only  -->
+				<include name = "subscription"/>	
+				
+			</run>
+		</groups>
+		
+		<classes>
+			<class name = "com.nn.testcase.Prepayment">
+			<methods>
+			<include name = "setSubscriptionConfigurationNovalnetBased"/>
+			<include name = "subscriptionSecondOrderNovalnetBased"/>
+			<include name = "subscriptionSecondOrderNovalnetBased_SubscriptionAmountUpdate"/>
+			<include name = "subscriptionSecondOrderNovalnetBased_SubscriptionCycleDateUpdate"/>
+<!-- 			<include name = "subscriptionNovalnetBased_ChangeNextCycleDate"/> -->
+<!-- 			<include name = "subscriptionNovalnetBased_UpdateAmount"/> -->
+			</methods>
+			</class>
+		</classes>
+		
+	</test>
+	
+</suite>

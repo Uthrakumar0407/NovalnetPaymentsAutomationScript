@@ -1,0 +1,51 @@
+git config --global user.email "mohamedn_m@novalnetsolutions.com"
+
+git commit -m "Fixed webdriver session issue - woocoomerce"
+
+git config -global user.name "mohamedn_m"
+
+git add --all
+
+git status
+
+git checkout mohamedn_m
+
+git branch
+
+git checkout development
+
+git diff src/test/java/com/nn/basetest/BaseTest.java
+
+git checkout  src/test/java/com/nn/testcase/DirectDebitSEPAAndGuaranteePaymentTests.java
+
+git stash
+
+git branch -a
+
+git checkout -b mohamedn_m
+
+
+===========================================================================================================================================================================================================
+ git status
+
+git add --all
+
+git commit -m "fixed prezelewy24 magento and reverted admin users for wocommerce cc and sepa"
+
+git checkout development
+
+git pull origin development
+
+git checkout mohamedn_m_development
+
+git merge development
+
+git status
+
+
+
+git push origin  mohamedn_m_development
+
+
+
+

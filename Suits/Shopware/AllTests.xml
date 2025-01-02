@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Shopware Regression Payment Tests" verbose="1" preserve-order="true" parallel="tests" thread-count="3">
+    <listeners>
+         <listener class-name="com.nn.listeners.TestListeners" />
+
+    </listeners>
+
+    <test name = "Logo Validation - Enable">
+        <classes>
+            <class name = "com.nn.testcase.shopware.VerifyPaymentLogoExist"/>
+        </classes>
+    </test>
+    <test name = "iDeal Payment Test">
+            <classes>
+            <class name = "com.nn.testcase.shopware.iDeal"/>
+        </classes>
+    </test>
+
+   <!-- <test name = "Credit Card Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.CreditCard"/>
+        </classes>
+    </test>-->
+
+    <test name = "Direct Debit Sepa Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.DirectDebitSepa"/>
+        </classes>
+    </test>
+
+    <test name = "Instalment Invoice Payment Tests">
+        <classes>
+            <class name = "com.nn.testcase.shopware.InstalmentInvoice"/>
+        </classes>
+    </test>
+
+    <test name = "Alipay Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.Alipay"/>
+        </classes>
+    </test>
+
+    <test name = "BanContact Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.Bancontact"/>
+        </classes>
+    </test>
+    <test name = "Payconiq Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.Payconiq"/>
+        </classes>
+    </test>
+
+<!--    <test name = "Giropay Payment Test">-->
+<!--        <classes>-->
+<!--            <class name = "com.nn.testcase.shopware.Giropay"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+
+<!--    <test name = "Online Bank Transfer Payment Test">-->
+<!--        <classes>-->
+<!--            <class name = "com.nn.testcase.shopware.OnlineBankTransfer"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+
+<!--    <test name = "Post Finance Payment Test">-->
+<!--        <classes>-->
+<!--            <class name = "com.nn.testcase.shopware.PostFinance"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+
+    <test name = "Przelewy24 Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.Przelewy24"/>
+        </classes>
+    </test>
+
+    <test name = "Blik Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.Blik"/>
+        </classes>
+    </test>
+
+
+<!--    <test name = "Sofort Payment Test">-->
+<!--        <classes>-->
+<!--            <class name = "com.nn.testcase.shopware.Sofort"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <test name = "Trustly Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.Trustly"/>
+        </classes>
+    </test>
+
+
+    <test name = "WeChatPay Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.WeChatPay"/>
+        </classes>
+    </test>
+
+
+    <test name = "Instalment Sepa Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.InstalmentSepa"/>
+        </classes>
+    </test>
+
+
+    <test name = "Prepayment Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.Prepayment"/>
+        </classes>
+    </test>
+
+
+    <test name = "Invoice Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.Invoice"/>
+        </classes>
+    </test>
+
+    <test name = "Direct Debit ACH Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.DirectDebitACH"/>
+        </classes>
+    </test>
+
+
+
+
+
+
+    <test name = "PayPal Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.PayPal"/>
+        </classes>
+    </test>
+
+
+    <test name = "Guarantee SEPA Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.GuaranteeSepa"/>
+        </classes>
+    </test>
+
+
+
+    <test name = "Guarantee Invoice Payment Tests">
+        <classes>
+            <class name = "com.nn.testcase.shopware.GuaranteeInvoice"/>
+
+        </classes>
+    </test>
+
+
+    <test name = "Multibanco Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.Multibanco"/>
+        </classes>
+    </test>
+
+    <test name = "MB Way Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.MBWay"/>
+        </classes>
+    </test>
+
+    <test name = "eps Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.eps"/>
+        </classes>
+    </test>
+
+    <test name = "Cash Payment Payment Test">
+        <classes>
+            <class name = "com.nn.testcase.shopware.Cashpayment"/>
+        </classes>
+    </test>
+
+    <test name = "Email Payment Tests">
+        <classes>
+            <class name = "com.nn.testcase.shopware.VerifyEmailReceived"/>
+          <!--  <class name = "com.nn.testcase.shopware.verifyDeactivatePayment"/>-->
+        </classes>
+    </test>
+
+    <test name = "Logo Validation - Disable">
+        <classes>
+
+            <class name = "com.nn.testcase.shopware.VerifyPaymentLogoNotExist"/>
+        </classes>
+    </test>
+
+
+</suite>
+
+        <!-- ~/Downloads/allure-commandline-2.9.0/allure-2.9.0/bin/allure serve /var/www/nageshwaran_k/workspace/GitNovalet/AutomationPaymentTests/target/surefire-reports -->

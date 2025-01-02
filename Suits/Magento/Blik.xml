@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Magento Novalnet Blik Payment Tests"  verbose="1"  >
+
+	<listeners>
+		<listener class-name="com.nn.listeners.TestListeners" />
+	</listeners>
+
+
+
+	<test name = "Blik Payments">
+		<classes>
+			<class name = "com.nn.testcase.Magento.Blik"/>
+		</classes>
+	</test>
+
+	<test name = "Blik DeActivatePayment">
+		<classes>
+			<class name = "com.nn.testcase.Magento.VerifyDeactivatePayment">
+				<methods>
+					<include name="deactivatePaymentVerifyCheckoutBlik"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name = "Blik Logo Enable">
+		<classes>
+			<class name = "com.nn.testcase.Magento.VerifyPaymentLogoExist">
+				<methods>
+					<include name="verifyPaymentLogoBlik"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name = "Blik Logo Disable">
+		<classes>
+			<class name = "com.nn.testcase.Magento.VerifyPaymentLogoNotExist">
+				<methods>
+					<include name="verifyPaymentLogoBlik"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name = "Blik Verify Email">
+		<classes>
+			<class name = "com.nn.testcase.Magento.VerifyMailOrders">
+				<methods>
+					<include name="mailVerifyOrderBlik"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+</suite>
+
+<!-- ~/Downloads/allure-commandline-2.9.0/allure-2.9.0/bin/allure serve /var/www/nageshwaran_k/workspace/GitNovalet/AutomationPaymentTests/target/surefire-reports -->

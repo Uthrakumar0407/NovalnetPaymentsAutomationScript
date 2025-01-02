@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Magento Novalnet Payment Tests"  verbose="1" parallel="tests" preserve-order="true" thread-count="3" >
+
+	<listeners>
+		<listener class-name="com.nn.listeners.TestListeners" />
+	</listeners>
+
+
+	<test name = "Logo Validation - Enable">
+    <classes>
+        <class name = "com.nn.testcase.Magento.VerifyPaymentLogoExist"/>
+
+    </classes>
+</test>
+	<test name = "Przelewy24">
+		<classes>
+			<class name = "com.nn.testcase.Magento.Przelewy24"/>
+		</classes>
+	</test>
+
+	<test name = "Alipay">
+		<classes>
+			<class name = "com.nn.testcase.Magento.Alipay"/>
+		</classes>
+	</test>
+
+	<test name = "WeChatPay">
+		<classes>
+			<class name = "com.nn.testcase.Magento.WeChatPay"/>
+		</classes>
+	</test>
+
+	<!--<test name = "GiroPay">
+		<classes>
+			<class name = "com.nn.testcase.Magento.GiroPay"/>
+		</classes>
+	</test>-->
+
+
+
+	<test name = "InstalmentInvoice">
+		<classes>
+			<class name = "com.nn.testcase.Magento.InstalmentInvoice"/>
+		</classes>
+	</test>
+
+
+	<test name = "CreditCard">
+		<classes>
+			<class name = "com.nn.testcase.Magento.CreditCard"/>
+		</classes>
+	</test>
+
+
+	<test name = "Direct Debit SEPA " preserve-order="true">
+		<classes>
+			<class name = "com.nn.testcase.Magento.DirectDebitSEPA"/>
+
+		</classes>
+	</test>
+
+
+
+	<test name = "Invoice" preserve-order="true">
+		<classes>
+			<class name = "com.nn.testcase.Magento.Invoice"/>
+
+		</classes>
+	</test>
+
+	<test name = "iDeal">
+		<classes>
+			<class name = "com.nn.testcase.Magento.iDeal"/>
+		</classes>
+	</test>
+
+
+
+
+<!--
+	<test name = "OnlineBankTransfer">
+		<classes>
+			<class name = "com.nn.testcase.Magento.OnlineBankTransfer"/>
+		</classes>
+	</test>-->
+
+
+	<test name = "InstalmentSEPA">
+		<classes>
+			<class name = "com.nn.testcase.Magento.InstalmentSEPA"/>
+		</classes>
+	</test>
+
+
+	<test name = "Guarantee SEPA" preserve-order="true">
+		<classes>
+
+			<class name = "com.nn.testcase.Magento.GuaranteeSEPA"/>
+		</classes>
+	</test>
+
+	<test name = "GuaranteeInvoice" preserve-order="true">
+		<classes>
+			<class name = "com.nn.testcase.Magento.GuaranteeInvoice"/>
+		</classes>
+	</test>
+
+
+
+	<test name = "PayPal">
+		<classes>
+			<class name = "com.nn.testcase.Magento.PayPal"/>
+		</classes>
+	</test>
+
+	<test name = "Bancontact">
+		<classes>
+			<class name = "com.nn.testcase.Magento.Bancontact"/>
+		</classes>
+	</test>
+
+	<test name = "MBWay">
+		<classes>
+			<class name = "com.nn.testcase.Magento.MBWay"/>
+
+		</classes>
+	</test>
+
+
+	<test name = "Multibanco">
+		<classes>
+			<class name = "com.nn.testcase.Magento.Multibanco"/>
+		</classes>
+	</test>
+
+	<test name = "Trustly">
+		<classes>
+			<class name = "com.nn.testcase.Magento.Trustly"/>
+		</classes>
+	</test>
+
+	<!--<test name = "PostFinance">
+		<classes>
+			<class name = "com.nn.testcase.Magento.PostFinance"/>
+		</classes>
+	</test>-->
+
+	<test name = "Payconiq ">
+		<classes>
+			<class name = "com.nn.testcase.Magento.Payconiq"/>
+
+		</classes>
+	</test>
+
+
+	<test name = "PrePayment">
+		<classes>
+			<class name = "com.nn.testcase.Magento.PrePayment"/>
+		</classes>
+	</test>
+
+	<test name = "Sofort">
+		<classes>
+			<class name = "com.nn.testcase.Magento.Sofort"/>
+		</classes>
+	</test>
+
+	<test name = "EPS">
+		<classes>
+			<class name = "com.nn.testcase.Magento.eps"/>
+		</classes>
+	</test>
+
+	<test name = "CashPayment ">
+		<classes>
+			<class name = "com.nn.testcase.Magento.CashPayment"/>
+			<!--<class name = "com.nn.testcase.Magento.verifyDeactivatePayment"/>-->
+		</classes>
+	</test>
+
+	<test name = "Blik ">
+		<classes>
+			<class name = "com.nn.testcase.Magento.Blik"/>
+
+		</classes>
+	</test>
+
+	<test name = "Logo Validation - disable">
+		<classes>
+
+			<class name = "com.nn.testcase.Magento.VerifyPaymentLogoNotExist"/>
+		</classes>
+	</test>
+
+
+	<test name = "Email Validation " preserve-order="true">
+		<classes>
+			<class name = "com.nn.testcase.Magento.VerifyMailOrders"/>
+			<!--<class name = "com.nn.testcase.Magento.verifyDeactivatePayment"/>-->
+		</classes>
+	</test>
+
+
+
+
+
+
+
+
+
+</suite>
+
+<!-- ~/Downloads/allure-commandline-2.9.0/allure-2.9.0/bin/allure serve /var/www/nageshwaran_k/workspace/GitNovalet/AutomationPaymentTests/target/surefire-reports -->

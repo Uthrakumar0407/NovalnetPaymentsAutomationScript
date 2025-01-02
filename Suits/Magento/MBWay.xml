@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Magento Novalnet MBWay Payment Tests"  verbose="1"  >
+
+	<listeners>
+		<listener class-name="com.nn.listeners.TestListeners" />
+	</listeners>
+
+
+
+	<test name = "MBWay Payments">
+		<classes>
+			<class name = "com.nn.testcase.Magento.MBWay"/>
+		</classes>
+	</test>
+
+	<test name = "MBWay DeActivatePayment">
+		<classes>
+			<class name = "com.nn.testcase.Magento.VerifyDeactivatePayment">
+				<methods>
+					<include name="deactivatePaymentVerifyCheckouMBWay"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name = "MBWay Logo Enable">
+		<classes>
+			<class name = "com.nn.testcase.Magento.VerifyPaymentLogoExist">
+				<methods>
+					<include name="verifyPaymentLogoMBWay"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name = "MBWay Logo Disable">
+		<classes>
+			<class name = "com.nn.testcase.Magento.VerifyPaymentLogoNotExist">
+				<methods>
+					<include name="verifyPaymentLogoMBWay"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name = "MBWay Verify Email">
+		<classes>
+			<class name = "com.nn.testcase.Magento.VerifyMailOrders">
+				<methods>
+					<include name="mailVerifyOrderMBway"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+
+
+</suite>
+
+<!-- ~/Downloads/allure-commandline-2.9.0/allure-2.9.0/bin/allure serve /var/www/nageshwaran_k/workspace/GitNovalet/AutomationPaymentTests/target/surefire-reports -->

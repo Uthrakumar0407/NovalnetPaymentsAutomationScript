@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name ="Novalnet Credit Card Pan Hash Payment Tests" verbose="1" preserve-order="true" parallel="tests" thread-count="6">
+	<listeners>
+		<listener class-name="io.qameta.allure.testng.AllureTestNg" />
+		<listener class-name="com.nn.listeners.AllureScreenShotListener" />
+		<listener class-name="com.nn.listeners.TestListeners" />
+		<listener class-name="org.testng.reporters.XMLReporter" />
+		<listener class-name="org.testng.reporters.FailedReporter" />
+	</listeners>
+
+	<test name = "CreditCard Payment Direct Card Order Test">
+	<parameter name="BROWSER" value="chrome"/>
+	<parameter name ="username" value = "cc"></parameter>
+			<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.CreditCardPanHashDirectCard"/>
+		</classes>
+	</test>
+
+	<test name = "CreditCard Payment Double Click Place Order Test">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "cc1"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.CreditCardPanHashDoubleClickPlaceOrder"/>
+		</classes>
+	</test>
+
+	<test name = "CreditCard Payment Expired Card Order Test">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "cc2"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.CreditCardPanHashExpiredCard"/>
+		</classes>
+	</test>
+
+	<test name = "CreditCard Payment InsufficientFund Order Test">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "cc3"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.CreditCardPanHashInsufficientFund"/>
+		</classes>
+	</test>
+
+	<test name = "CreditCard Payment RedirectCard Order Test">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "cc4"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.CreditCardPanHashRedirectCard"/>
+		</classes>
+	</test>
+
+	<test name = "CreditCard Payment RestrictedCard Order Test">
+		<parameter name="BROWSER" value="chrome"/>
+		<parameter name ="username" value = "cc5"></parameter>
+		<parameter name ="password" value = "wordpress"></parameter>
+		<classes>
+			<class name = "com.nn.testcase.CreditCardPanHashRestrictedCard"/>
+		</classes>
+	</test>
+</suite>
+
+<!-- ~/Downloads/allure-commandline-2.9.0/allure-2.9.0/bin/allure serve /var/www/nageshwaran_k/workspace/GitNovalet/AutomationPaymentTests/target/surefire-reports -->
