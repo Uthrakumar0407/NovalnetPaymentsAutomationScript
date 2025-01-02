@@ -39,7 +39,8 @@ import java.util.*;
 
 public class GmailEmailRetriever {
 
-
+ private static final String CLIENT_ID = "552816382863-096005plaikj9f3qdtapcajjj48r64ff.apps.googleusercontent.com";
+    private static final String CLIENT_SECRET = "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";
     private static final String APPLICATION_NAME = "novalnet solutions";
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
 
