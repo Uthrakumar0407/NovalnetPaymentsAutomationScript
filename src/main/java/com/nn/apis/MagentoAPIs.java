@@ -51,10 +51,11 @@ public class MagentoAPIs {
     }
 
     public static  String getAuthToken(String baseURI){
+        String adminToken = getAdminToken(baseURI);
         Response response = RestAssured.given()
                 .baseUri(baseURI)
                 .contentType(CONTENT_TYPE)
-                .header("Authorization","Bearer "+BEARER_TOKEN)
+                .header("Authorization","Bearer " + adminToken)
                 .body("{\"username\":\""+SHOP_BACKEND_USERNAME+"\",\"password\":\""+SHOP_BACKEND_PASSWORD+"\"}")
                 .post("integration/admin/token")
                 .then()

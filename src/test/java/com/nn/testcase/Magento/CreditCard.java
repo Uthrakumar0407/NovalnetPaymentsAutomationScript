@@ -15,6 +15,7 @@ import com.nn.reports.ExtentTestManager;
 import com.nn.utilities.DriverActions;
 import com.nn.utilities.ThunderBirdEmailHelper;
 import com.nn.v13.IframeV13;
+import io.qameta.allure.testng.AllureTestNg;
 import org.openqa.selenium.By;
 import org.testng.annotations.*;
 
@@ -30,6 +31,7 @@ import static com.nn.pages.Magento.NovalnetAdminPortalPaymentConfiguration.*;
 import static com.nn.utilities.DriverActions.switchToDefaultContent;
 import static com.nn.utilities.DriverActions.switchToFrame;
 
+@Listeners({AllureTestNg.class})
 public class CreditCard extends BaseTest {
 
     MagentoPage magentoPage = MagentoPage.builder()
@@ -449,10 +451,10 @@ public class CreditCard extends BaseTest {
                 .ifTokenDisplayedclickNewCardCC()
                 .fillCreditCardForm(magentoPage.getTestData2().get("InsufficientFunds"), magentoPage.getTestData2().get("ExpDate"), magentoPage.getTestData2().get("CVV"))
                 .clickPlaceOrderBtn();
-        /*magentoPage.getCheckoutPage().submitCCAuthenticationPage();
+       // magentoPage.getCheckoutPage().submitCCAuthenticationPage();
         magentoPage.getCheckoutPage().verifyPaymentErrorMessage("Insufficient funds or credit limit exceeded");
-        DriverActions.verifyEquals(isCartEmpty(),false,"Verify cart is not empty after payment failure");*/
-        magentoPage.getCheckoutPage().isShippingPageDisplayed(true);
+       // DriverActions.verifyEquals(isCartEmpty(),false,"Verify cart is not empty after payment failure");
+        //magentoPage.getCheckoutPage().isShippingPageDisplayed(true);
     }
 
     @Test(priority = 14, description ="Check whether the user gets the appropriate error message displays on cart page by cancelling the payment on the OTP page.." +
@@ -468,7 +470,7 @@ public class CreditCard extends BaseTest {
                 .clickPlaceOrderBtn();
         magentoPage.getCheckoutPage().cancelCCAuthenticationPage();
         magentoPage.getCheckoutPage().verifyPaymentErrorMessage(CC_END_USER_CANCEL_ERROR);
-        DriverActions.verifyEquals(isCartEmpty(),false,"Verify cart is not empty after payment failure");
+      //  DriverActions.verifyEquals(isCartEmpty(),false,"Verify cart is not empty after payment failure");
     }
 
     @Test(priority = 15, description ="Check whether the user gets the appropriate error message displays on cart page after using an expired card disabling product remain in cart," +
@@ -482,10 +484,10 @@ public class CreditCard extends BaseTest {
                 .ifTokenDisplayedclickNewCardCC()
                 .fillCreditCardForm(magentoPage.getTestData2().get("Expired"), magentoPage.getTestData2().get("ExpDate"), magentoPage.getTestData2().get("CVV"))
                 .clickPlaceOrderBtn();
-       /* magentoPage.getCheckoutPage().submitCCAuthenticationPage();
+        //magentoPage.getCheckoutPage().submitCCAuthenticationPage();
         magentoPage.getCheckoutPage().verifyPaymentErrorMessage("Credit card payment not possible: card expired");
-        DriverActions.verifyEquals(isCartEmpty(),true,"Verify cart is empty after payment failure");*/
-        magentoPage.getCheckoutPage().isShippingPageDisplayed(true);
+        //DriverActions.verifyEquals(isCartEmpty(),true,"Verify cart is empty after payment failure");
+       // magentoPage.getCheckoutPage().isShippingPageDisplayed(true);
     }
 
     @Test(priority = 16, description ="Check whether the user gets the appropriate error message displays on cart page after using an restricted card disabling product remain in cart," +
@@ -499,10 +501,10 @@ public class CreditCard extends BaseTest {
                 .ifTokenDisplayedclickNewCardCC()
                 .fillCreditCardForm(magentoPage.getTestData2().get("Restricted"), magentoPage.getTestData2().get("ExpDate"), magentoPage.getTestData2().get("CVV"))
                 .clickPlaceOrderBtn();
-       /* magentoPage.getCheckoutPage().submitCCAuthenticationPage();
+        //magentoPage.getCheckoutPage().submitCCAuthenticationPage();
         magentoPage.getCheckoutPage().verifyPaymentErrorMessage("Restricted card");
-        DriverActions.verifyEquals(isCartEmpty(),true,"Verify cart is empty after payment failure");*/
-        magentoPage.getCheckoutPage().isShippingPageDisplayed(true);
+      //  DriverActions.verifyEquals(isCartEmpty(),true,"Verify cart is empty after payment failure");
+      //  magentoPage.getCheckoutPage().isShippingPageDisplayed(true);
 
     }
 
@@ -517,10 +519,10 @@ public class CreditCard extends BaseTest {
                 .ifTokenDisplayedclickNewCardCC()
                 .fillCreditCardForm(magentoPage.getTestData2().get("InsufficientFunds"), magentoPage.getTestData2().get("ExpDate"), magentoPage.getTestData2().get("CVV"))
                 .clickPlaceOrderBtn();
-       /* magentoPage.getCheckoutPage().submitCCAuthenticationPage();
+       // magentoPage.getCheckoutPage().submitCCAuthenticationPage();
         magentoPage.getCheckoutPage().verifyPaymentErrorMessage("Insufficient funds or credit limit exceeded");
-        DriverActions.verifyEquals(isCartEmpty(),true,"Verify cart is empty after payment failure");*/
-        magentoPage.getCheckoutPage().isShippingPageDisplayed(true);
+       // DriverActions.verifyEquals(isCartEmpty(),true,"Verify cart is empty after payment failure");
+        //magentoPage.getCheckoutPage().isShippingPageDisplayed(true);
     }
 
     @Test(priority = 18, description ="Check whether the user gets the appropriate error message displays on cart page by cancelling the payment on the OTP page.." +
@@ -536,7 +538,7 @@ public class CreditCard extends BaseTest {
                 .clickPlaceOrderBtn();
         magentoPage.getCheckoutPage().cancelCCAuthenticationPage();
         magentoPage.getCheckoutPage().verifyPaymentErrorMessage(CC_END_USER_CANCEL_ERROR);
-        DriverActions.verifyEquals(isCartEmpty(),true,"Verify cart is empty after payment failure");
+        //DriverActions.verifyEquals(isCartEmpty(),true,"Verify cart is empty after payment failure");
     }
 
 

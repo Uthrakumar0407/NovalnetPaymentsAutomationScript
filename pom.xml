@@ -366,7 +366,16 @@
                     <configuration>
                         <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
                     </configuration>
+                    <executions>
+                        <execution>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>report</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
+
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>

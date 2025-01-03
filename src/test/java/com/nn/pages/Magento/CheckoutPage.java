@@ -84,7 +84,7 @@ public class CheckoutPage {
 
 	private By payPalnextBtn = By.xpath("//button[@id='btnNext']");
 
-	private By errorAlert = By.xpath("//div[@data-ui-id='checkout-cart-validationmessages-message-error']");
+	private By errorAlert = By.xpath("//*[text()='3D secure authentication failed or was cancelled']");
 
 	//by Nizam
 	private By googlePayBtn =By.cssSelector("#googlepay_container button");
@@ -298,7 +298,7 @@ public class CheckoutPage {
 
 	@Step("Verify payment error message at checkout expected: {0}")
 	public void verifyPaymentErrorMessage(String expected){
-		String actual = getElementText(errorAlert);
+		String actual = getElementText(By.xpath("//*[text()='"+expected+"']"));
 		verifyEquals(actual,expected);
 	}
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name ="Homepage Tests" verbose="1" parallel="tests" preserve-order="true" data-provider-thread-count="4">
+<suite name ="Payment Tests" verbose="1" parallel="tests" preserve-order="true" data-provider-thread-count="4">
 
 	<listeners>
 		<listener class-name="com.nn.listeners.TestListeners" />
@@ -10,13 +10,15 @@
 
 	<test name = "CreditCard">
 		<classes>
-			<class name = "com.nn.testcase.Magento.CreditCard">
+			<class name = "com.nn.testcase.Magento.CashPayment">
 				<methods>
-					<!--<include name="firstOrder"/>
-					<include name="secondOrder"/>
-					<include name="thirdOrder"/>
-					<include name="fourthOrder"/>-->
-					<include name="guestOrder"/>
+				<!--	<include name="expiredCardProductRemain"/>
+					<include name="restrictedCardProductRemain"/>
+					<include name="insufficientFundsCardProductRemain"/>
+					<include name="redirectCardEndUserCancelProductRemain"/>
+					<include name="expiredCardProductNotRemain"/>
+					<include name="restrictedCardProductNotRemain"/>-->
+					<include name="firstOrder"/>
 				</methods>
 
 			</class>
