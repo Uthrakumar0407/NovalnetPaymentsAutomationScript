@@ -27,6 +27,7 @@ import static com.nn.pages.Magento.NovalnetAdminPortalPaymentConfiguration.*;
 public class DirectDebitSEPA extends BaseTest {
 
     MagentoPage magentoPage = MagentoPage.builder()
+            //git test
             .novalnetAdminPortal(new NovalnetAdminPortal())
             .shopUserLoginPage(new ShopUserLoginPage())
             .shopBackEndLoginPage(new ShopBackEndLoginPage())
