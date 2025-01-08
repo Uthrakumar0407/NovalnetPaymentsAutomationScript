@@ -59,7 +59,7 @@ public class GiroPay extends BaseTest {
         clearCart();
     }
 
-    @Test(priority = 1, description = "Check whether the GiroPay payment order placed successully and partial refund events executed successfully",retryAnalyzer = RetryListener.class)
+    @Test(priority = 1, description = "Check whether the GiroPay payment order placed successully and partial refund events executed successfully"/*,retryAnalyzer = RetryListener.class*/)
     public void firstOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();

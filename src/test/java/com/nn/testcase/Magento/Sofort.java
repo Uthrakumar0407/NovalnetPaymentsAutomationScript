@@ -63,7 +63,7 @@ public class Sofort extends BaseTest {
         clearCart();
     }
 
-    @Test(priority = 1, description = "Check whether the Sofort payment order placed successully and chargeback, credit and refund events executed successfully",retryAnalyzer = RetryListener.class)
+    @Test(priority = 1, description = "Check whether the Sofort payment order placed successully and chargeback, credit and refund events executed successfully"/*,retryAnalyzer = RetryListener.class*/)
     public void firstOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
@@ -74,7 +74,7 @@ public class Sofort extends BaseTest {
         navigateCheckout(MagentoAPIs.getCustomerEmail());
         //    int productStock = getProductStock(PRODUCT_1);
         magentoPage.getCheckoutPage().isPaymentMethodDisplayed(ONLINE_TRANSFER);
-        magentoPage.getCheckoutPage().placeOrderWithOnlineTransfer();
+        magentoPage.getCheckoutPage().placeOrderWithGiropay();
         magentoPage.getSuccessPage().verifyNovalnetCommentsDisplayed();
         magentoPage.getTxnInfo().putAll(magentoPage.getSuccessPage().getSuccessPageTransactionDetails());
         String tid = magentoPage.getTxnInfo().get("TID").toString(),

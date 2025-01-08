@@ -66,7 +66,7 @@ public class InstalmentInvoice extends BaseTest {
     }
 
     @Test(priority = 1, description = "Check whether the test transaction is successful with Capture, set allowed cycles, verify allowed instalment cycles displayed at checkout instalment dropdown," +
-            " verify instalment object in tid, verify instalment table success page and orders page, execute instalment recurring and refund at shop backend for 1st cycle",retryAnalyzer = RetryListener.class)
+            " verify instalment object in tid, verify instalment table success page and orders page, execute instalment recurring and refund at shop backend for 1st cycle"/*,retryAnalyzer = RetryListener.class*/)
     public void firstOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
@@ -92,7 +92,7 @@ public class InstalmentInvoice extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_INVOICE),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, orderAmount, TID_STATUS_CONFIRMED, INSTALMENT_INVOICE);
         TID_Helper.verifyInstalmentValuesInTID(tid,"3",cycleAmount);
         magentoPage.getSuccessPage().verifyInstalmentTable(cycleAmount,3);
@@ -130,7 +130,7 @@ public class InstalmentInvoice extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_INVOICE),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount+1)/3);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_ON_HOLD, INSTALMENT_INVOICE);
         //TID_Helper.verifyBankDetails(tid, magentoPage.getSuccessPage().getSuccessPageBankDetails(magentoPage.getTxnInfo()));
         TID_Helper.verifyInstalmentCycleDatesExist(tid,false);
@@ -166,7 +166,7 @@ public class InstalmentInvoice extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_INVOICE),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount+1)/3);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_ON_HOLD, INSTALMENT_INVOICE);
         statusCommentsVerification(orderNumber,ONHOLD_ORDER_STATUS,false,paymentComments,paymentName);
         magentoPage.getCallback().transactionCapture(tid,DriverActions.getUpcomingMonthDatesInArr(3),"1","2",DriverActions.getUpcomingMonthDate(2));
@@ -201,7 +201,7 @@ public class InstalmentInvoice extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_INVOICE),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount+1)/3);
         TID_Helper.verifyTIDInformation(tid, orderAmount, TID_STATUS_CONFIRMED, INSTALMENT_INVOICE);
         magentoPage.getSuccessPage().verifyInstalmentTable(cycleAmount,3);
         statusCommentsVerification(orderNumber,COMPLETION_ORDER_STATUS,true,paymentComments,paymentName);

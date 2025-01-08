@@ -61,7 +61,7 @@ public class iDeal extends BaseTest {
         clearCart();
     }
 
-    @Test(priority = 1, description = "Check whether the iDeal payment order placed successully and chargeback, credit and refund events executed successfully",retryAnalyzer = RetryListener.class)
+    @Test(priority = 1, description = "Check whether the iDeal payment order placed successully and chargeback, credit and refund events executed successfully"/*,retryAnalyzer = RetryListener.class*/)
     public void firstOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();

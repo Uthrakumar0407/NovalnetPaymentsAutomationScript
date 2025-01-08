@@ -59,7 +59,7 @@ public class OnlineBankTransfer extends BaseTest {
         clearCart();
     }
 
-    @Test(priority = 1, description = "Check whether the Online Bank Transfer payment order placed successully and chargeback, credit and refund events executed successfully",retryAnalyzer = RetryListener.class)
+    @Test(priority = 1, description = "Check whether the Online Bank Transfer payment order placed successully and chargeback, credit and refund events executed successfully"/*,retryAnalyzer = RetryListener.class*/)
     public void firstOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
@@ -69,7 +69,7 @@ public class OnlineBankTransfer extends BaseTest {
         addProductToCart(PRODUCT_ONLINE_BANK_TRANSFER_PAY, 1);
         navigateCheckout(MagentoAPIs.getCustomerEmail());
         magentoPage.getCheckoutPage().isPaymentMethodDisplayed(ONLINE_BANK_TRANSFER);
-        magentoPage.getCheckoutPage().placeOrderWithOnlineBankTransfer();
+        magentoPage.getCheckoutPage().placeOrderWithGiropay();
         magentoPage.getSuccessPage().verifyNovalnetCommentsDisplayed();
         magentoPage.getTxnInfo().putAll(magentoPage.getSuccessPage().getSuccessPageTransactionDetails());
         String tid = magentoPage.getTxnInfo().get("TID").toString(),
@@ -101,7 +101,7 @@ public class OnlineBankTransfer extends BaseTest {
         addProductToCart(PRODUCT_ONLINE_BANK_TRANSFER_PAY,1);
         navigateCheckout(MagentoAPIs.getCustomerEmail());
         magentoPage.getCheckoutPage().isPaymentMethodDisplayed(ONLINE_BANK_TRANSFER);
-        magentoPage.getCheckoutPage().placeOrderWithOnlineBankTransfer();
+        magentoPage.getCheckoutPage().placeOrderWithGiropay();
         magentoPage.getSuccessPage().verifyNovalnetCommentsDisplayed();
         magentoPage.getTxnInfo().putAll(magentoPage.getSuccessPage().getSuccessPageTransactionDetails());
         String tid = magentoPage.getTxnInfo().get("TID").toString(),

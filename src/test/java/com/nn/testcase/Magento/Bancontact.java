@@ -10,6 +10,7 @@ import com.nn.pages.Magento.basetest.BaseTest;
 import com.nn.reports.ExtentTestManager;
 import com.nn.utilities.DriverActions;
 import com.nn.utilities.ThunderBirdEmailHelper;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.*;
 
 import java.util.HashMap;
@@ -56,7 +57,7 @@ public class Bancontact extends BaseTest {
         clearCart();
     }
 
-    @Test(priority = 1, description = "Check whether the Bancontact payment order placed successully and Callback Full refund events executed successfully",retryAnalyzer = RetryListener.class)
+    @Test(priority = 1, description = "Check whether the Bancontact payment order placed successully and Callback Full refund events executed successfully"/*,retryAnalyzer = RetryListener.class*/)
     public void firstOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();

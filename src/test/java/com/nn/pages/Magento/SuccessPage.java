@@ -210,15 +210,13 @@ public class SuccessPage {
 
 	@Step("Verify Instalment table at the success page")
 	public SuccessPage verifyInstalmentTable(String cycleAmount, int totalNumberOfCycles){
-		By table = By.cssSelector("div.box-order-billing-method table.table-order-items");
-		List<WebElement> rows = getElement(table).findElements(By.cssSelector("tr>td>b"));
-		String actualcycleAmount = rows.get(rows.size()-1).getText().replaceAll("[^0-9]", "");
-		int actualCycleCount = 0;
-		for(int i=0;i<rows.size()-1;i++){
-			actualCycleCount += Integer.parseInt(rows.get(i).getText());
+		List<WebElement> cycleAmounts = getElements(By.xpath("(//table[@class='data table table-order-items'])[2]//tr//td[3]"));
+		List<WebElement> actualCycleCount = getElements(By.xpath("(//table[@class='data table table-order-items'])[2]//tbody/tr"));
+		for(int i=0;i<cycleAmounts.size();i++){
+			String actualcycleAmount = cycleAmounts.get(i).getText().replaceAll("[^0-9]", "");
+			verifyEquals(actualcycleAmount,cycleAmount,"Verify Instalment cycle amount");
 		}
-		verifyEquals(actualcycleAmount,cycleAmount,"Verify Instalment cycle amount");
-		verifyEquals(actualCycleCount,totalNumberOfCycles,"Verify Instalment cycle count");
+		verifyEquals(actualCycleCount.size(),totalNumberOfCycles,"Verify Instalment cycle count");
 		return this;
 	}
 
