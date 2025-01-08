@@ -86,7 +86,7 @@ public final class Constants {
     public static final String DOB_LESS_18 = "12.12.2020";
     public static final String REMAINING_CYCLES = "REMAINING_CYCLES";
     public static final String ALL_CYCLES = "ALL_CYCLES";
-    public static final int SHIPPING_RATE=500;
+    public static final int SHIPPING_RATE=0;
 
     //Products
 

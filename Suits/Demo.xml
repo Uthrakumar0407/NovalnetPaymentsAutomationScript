@@ -8,9 +8,9 @@
 		<listener class-name="io.qameta.allure.testng.AllureTestNg"/>
 	</listeners>
 
-	<test name = "CreditCard">
+	<test name = "DirectDebitSEPA">
 		<classes>
-			<class name = "com.nn.testcase.Magento.CashPayment">
+			<class name = "com.nn.testcase.Magento.DirectDebitSEPA">
 				<methods>
 				<!--	<include name="expiredCardProductRemain"/>
 					<include name="restrictedCardProductRemain"/>
@@ -18,7 +18,9 @@
 					<include name="redirectCardEndUserCancelProductRemain"/>
 					<include name="expiredCardProductNotRemain"/>
 					<include name="restrictedCardProductNotRemain"/>-->
-					<include name="firstOrder"/>
+	<!--				<include name="seventhOrder"/>
+					<include name="eighthOrder"/>-->
+					<include name="downloadProductConfirmOrder"/>
 				</methods>
 
 			</class>

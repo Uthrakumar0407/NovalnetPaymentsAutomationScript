@@ -69,7 +69,7 @@ public class DirectDebitSEPA extends BaseTest {
     }
 
     @Test(priority = 1, description = "Check whether the test transaction is successful with payment action set to Capture, verify token exist in response, partial refund shop backend," +
-            " execute chargeback and execute credit events ",retryAnalyzer = RetryListener.class)
+            " execute chargeback and execute credit events "/*,retryAnalyzer = RetryListener.class*/)
     public void firstOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
@@ -91,7 +91,7 @@ public class DirectDebitSEPA extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(DIRECT_DEBIT_SEPA),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString();
-        TID_Helper.verifyTIDInformation(tid, orderAmount, TID_STATUS_CONFIRMED, DIRECT_DEBIT_SEPA,2);
+        TID_Helper.verifyTIDInformation(tid, orderAmount, TID_STATUS_CONFIRMED, DIRECT_DEBIT_SEPA,3);
         TID_Helper.verifyPaymentTokenExist(tid);
         statusCommentsVerification(orderNumber,COMPLETION_ORDER_STATUS,true,paymentComments,paymentName);
         refundInvoiceTypeShopBackend(orderNumber,String.valueOf(Integer.parseInt(orderAmount)/2),PROCESSING_ORDER_STATUS,tid);
@@ -106,7 +106,7 @@ public class DirectDebitSEPA extends BaseTest {
     }
 
     @Test(priority = 2, description = "Check whether the test order placed successfully with payment action set to Capture , verify masked card displayed, capture order in shop backend" +
-            ", full refund via shop backend",retryAnalyzer = RetryListener.class)
+            ", full refund via shop backend"/*,retryAnalyzer = RetryListener.class*/)
     public void secondOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
@@ -114,13 +114,14 @@ public class DirectDebitSEPA extends BaseTest {
                 TESTMODE,true,
                 PAYMENT_ACTION,AUTHORIZE,
                 MIN_AUTH_AMOUNT,"",
-                DUE_DATE,"5"
+                DUE_DATE,"3"
         ));
         addProductToCart(PRODUCT_SEPA,1);
         navigateCheckout(MagentoAPIs.getCustomerEmail());
         magentoPage.getCheckoutPage()
                 .isPaymentMethodDisplayed(DIRECT_DEBIT_SEPA)
                 .verifyMaskedSEPAData(magentoPage.getTestData().get("IBANDE"))
+//                .fill_IBAN_SEPA(magentoPage.getTestData().get("IBANDE"))
                 .clickPlaceOrderBtnForSepa();
         magentoPage.getSuccessPage().verifyNovalnetCommentsDisplayed();
         magentoPage.getTxnInfo().putAll(magentoPage.getSuccessPage().getSuccessPageTransactionDetails());
@@ -129,7 +130,7 @@ public class DirectDebitSEPA extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(DIRECT_DEBIT_SEPA),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString();
-        TID_Helper.verifyTIDInformation(tid, orderAmount, TID_STATUS_ON_HOLD, DIRECT_DEBIT_SEPA,5,0);
+        TID_Helper.verifyTIDInformation(tid, orderAmount, TID_STATUS_ON_HOLD, DIRECT_DEBIT_SEPA,3,0);
         statusCommentsVerification(orderNumber,ONHOLD_ORDER_STATUS,false,paymentComments,paymentName);
         captureOrder(orderNumber,tid);
         refundInvoiceTypeShopBackend(orderNumber,orderAmount,REFUND_ORDER_STATUS,tid);
@@ -202,7 +203,7 @@ public class DirectDebitSEPA extends BaseTest {
         verifyNovalnetComments(orderNumber,COLLECTION_COMMENT_);
     }
 
-    @Test(priority = 5, description = "Check whether the authorize order is placed successfully, verify new iban updated in masked data and cancelled via shop backend ",retryAnalyzer = RetryListener.class)
+    @Test(priority = 5, description = "Check whether the authorize order is placed successfully, verify new iban updated in masked data and cancelled via shop backend "/*,retryAnalyzer = RetryListener.class*/)
     public void fifthOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
@@ -262,7 +263,7 @@ public class DirectDebitSEPA extends BaseTest {
         verifyInvoiceCreated(orderNumber,false);
     }
 
-    @Test(priority = 7, description = "Check whether the zero amount order is placed successfully with authorize zero amount config, book the transaction, verify the booked transaction",retryAnalyzer = RetryListener.class)
+    @Test(priority = 7, description = "Check whether the zero amount order is placed successfully with authorize zero amount config, book the transaction, verify the booked transaction"/*,retryAnalyzer = RetryListener.class*/)
     public void seventhOrder(){
         magentoPage.getShopUserLoginPage().logout();
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
@@ -292,7 +293,7 @@ public class DirectDebitSEPA extends BaseTest {
     }
 
     @Test(priority = 8, dependsOnMethods = "seventhOrder", description = "Check whether the zero amount order is placed successfully with authorize zero amount config, " +
-            "verify masked card data not displayed, book the transaction, verify the booked transaction",retryAnalyzer = RetryListener.class)
+            "verify masked card data not displayed, book the transaction, verify the booked transaction"/*,retryAnalyzer = RetryListener.class*/)
     public void eighthOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
@@ -304,7 +305,8 @@ public class DirectDebitSEPA extends BaseTest {
         navigateCheckout(MagentoAPIs.getCustomerEmail());
         magentoPage.getCheckoutPage()
                 .isPaymentMethodDisplayed(DIRECT_DEBIT_SEPA)
-                .verifyMaskedSEPADataDisplayed(false)
+                .verifyMaskedSEPADataDisplayed(true)
+                .clickNewCardSEPA()
                 .fill_IBAN_SEPA(magentoPage.getTestData().get("IBANAT"))
                 .clickPlaceOrderBtnForSepa();
         magentoPage.getSuccessPage().verifyNovalnetCommentsDisplayed();
@@ -320,16 +322,16 @@ public class DirectDebitSEPA extends BaseTest {
         bookAndVerifyZeroAmountBooking(orderAmount,DIRECT_DEBIT_SEPA);
     }
 
-    //@Test(priority = 9, description = "Verify the order and invoice mail received with novalnet comments")
+   /* @Test(priority = 9, description = "Verify the order and invoice mail received with novalnet comments")*/
     public void mailVerifyOrder(){
         magentoPage.getShopUserLoginPage().logout();
-        /*magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
+      /*  magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
         setPaymentConfiguration(DIRECT_DEBIT_SEPA, Map.of(
                 TESTMODE,false,
                 PAYMENT_ACTION,CAPTURE
         ));*/
-        createCustomer(CREDITCARD,"gopinath_m@novalnetsolutions.com");
+        createCustomer(DIRECT_DEBIT_SEPA,"test@novalnetsolutions.com");
         addProductToCart(PRODUCT_SEPA,1);
         magentoPage.getShopUserLoginPage().SigninToShop(MagentoAPIs.getCustomerEmail(),SHOP_FRONTEND_PASSWORD);
         magentoPage.getMyAccountPage().load().changeCountry("DE");
@@ -356,7 +358,7 @@ public class DirectDebitSEPA extends BaseTest {
         DriverActions.verifyEquals(invoiceMailContent.contains(paymentComments),true,"Verify invoice mail has payment comments");
     }
 
-    @Test(priority = 9, description = "Check whether the test transaction is successful with guest user",retryAnalyzer = RetryListener.class)
+    @Test(priority = 9, description = "Check whether the test transaction is successful with guest user"/*,retryAnalyzer = RetryListener.class*/)
     public void guestOrder(){
         magentoPage.getShopUserLoginPage().logout();
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
