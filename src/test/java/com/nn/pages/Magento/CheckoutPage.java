@@ -671,11 +671,10 @@ public class CheckoutPage {
 	@Step("Place order with iDeal")
 	public SuccessPage placeOrderWithIDeal() {
 		clickPlaceOrderBtn();
-		waitForElementVisible(By.xpath("//button[@class='btn btn-primary' and text()='Next']"), 30);
-		clickElement(By.xpath("//button[@class='btn btn-primary' and text()='Next']"));
-		clickElement(By.xpath("//button[@class='btn btn-primary' and text()='Login']"));
-		clickElement(By.xpath("//button[@class='btn btn-primary' and text()='Make Payment']"));
-		clickElement(By.xpath("//button[@class='btn btn-primary' and text()='Back to where you came from']"));
+		waitForURLToBe("https://ext.pay.ideal.nl/",60);
+		clickElement(By.xpath("//button[normalize-space(text())='Select your bank']"));
+		clickElement(By.xpath("//p[text()='ABC Bank']"));
+
 		waitForElementVisible(orderSuccessMessage, 30);
 		return new SuccessPage();
 	}
@@ -767,8 +766,20 @@ public class CheckoutPage {
 	public com.nn.pages.SuccessPage placeOrderWithGiropay() {
 		clickPlaceOrderBtn();
 		//enterGiropayBankDetails();//commented reason is giropay UI totally changed
-		enterNewGiropayBankDetails();
+		waitForURLToBe("https://link.tink.com/",60);
+		clickElement(By.xpath("//span[text()='Continue']"));
+		setText(By.cssSelector("#username"),"u83188312");
+		setText(By.cssSelector("#password"),"zhx571");
+		clickElement(By.xpath("//span[text()='Continue']"));
+		clickElement(By.xpath("//span[text()='2FA App Code']"));
+		setText(By.xpath("(//input)[1]"),"1234");
+		clickElement(By.xpath("//span[text()='Continue']"));
+		clickElement(By.xpath("(//input)[1]"));
+		clickElement(By.xpath("//span[text()='Continue']"));
+		setText(By.xpath("(//input)[1]"),"1234");
+        clickElement(By.xpath("//button[@type='submit']"));
 		waitForElementVisible(orderSuccessMessage, 30);
+
 		return new com.nn.pages.SuccessPage();
 	}
 
@@ -883,25 +894,8 @@ public class CheckoutPage {
 	@Step("Enter Online Bank Transfer Details ")
 	public void enterOnlineBankTransferDetails() {
 		waitForURLToBe("https://link.tink.com/",120);
-		String demoBank = "//button[@data-test='providerListItem']/span[contains(span[@data-test='providerName'], 'Demo providers - Payments')]";
-		String demoBankRedirect = "//button[@data-test='providerListItem']/span[contains(span[@data-test='providerName'], 'Demo Open Banking Redirect (payment successful)')]";
-		String continueBtn = "//span[@class='MuiButton-label' and contains(text(),'log in')]";
-		String identifyBtn = "//input[@class='button' and @type='submit' and @value='Identify']";
-		String paynowBtn = "//span[@class='MuiButton-label' and text()='Pay now']";
-		//waitForElementVisible(By.xpath(demoBank));
-		//sleep(5);
-		//waitForElementClickable(DriverManager.getDriver().findElement(By.xpath(demoBank)));
-		clickElementWithJs(By.xpath(demoBank));
-		//waitForElementVisible(By.xpath(demoBankRedirect));
-		clickElementWithJs(By.xpath(demoBankRedirect));
-		//waitForElementVisible(By.xpath(continueBtn));
-		clickElementWithJs(By.xpath(continueBtn));
-		//waitForElementVisible(By.xpath(identifyBtn));
-		clickElementWithJs(By.xpath(identifyBtn));
-		//waitForElementVisible(By.xpath(paynowBtn));
-		clickElementWithJs(By.xpath(paynowBtn));
-		//waitForElementVisible(By.xpath(identifyBtn));
-		clickElementWithJs(By.xpath(identifyBtn));
+	     clickElement(By.xpath("//span[text()='Continue']"));
+		 setText(By.cssSelector("#username"),"");
 	}
 
 
@@ -1268,24 +1262,10 @@ public class CheckoutPage {
 
 	@Step("Enter new eps Bank Transfer Details ")
 	public void  enterNewEPSBankDetails() {
-		waitForURLToBe("https://sandbox.paydirekt.de/eps-checkout",120);
-		By epsCookie = By.xpath("//button[contains(text(), 'Alle Cookies akzeptieren')]");
-		if(checkElementDisplayed(epsCookie)){
-			clickElement(epsCookie);
-			setText(By.cssSelector("#bank_search"),"HYPTAT22XXX");
-			clickElement(By.xpath("//div[contains(text(),'Hypo Tirol AG')]"));
-			clickElement(By.xpath("//button[contains(text(), 'Weiter zum Bezahlen')]"));
-			clickElement(By.cssSelector("#confirmButton"));
-		}else if(waitForElementVisible(By.cssSelector("#bank_search"),5,"")){
-			setText(By.cssSelector("#bank_search"),"HYPTAT22XXX");
-			clickElement(By.xpath("//div[contains(text(),'Hypo Tirol AG')]"));
-			clickElement(By.xpath("//button[contains(text(), 'Weiter zum Bezahlen')]"));
-			clickElement(By.cssSelector("#confirmButton"));
-
-		}else{
-			clickElement(By.xpath("//button[contains(text(), 'Weiter zum Bezahlen')]"));
-			clickElement(By.cssSelector("#confirmButton"));
-		}
+		clickElement(By.xpath("//button[text()='Next']"));
+		clickElement(By.xpath("//button[text()='Login']"));
+		clickElement(By.xpath("//button[text()='Make Payment']"));
+		clickElement(By.xpath("//button[text()='Back to where you came from']"));
 	}
 	@Step("Enter eps Bank Transfer Details ")
 	public void  enterEPSankDetails() {

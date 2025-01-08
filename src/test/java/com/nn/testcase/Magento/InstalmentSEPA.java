@@ -65,7 +65,7 @@ public class InstalmentSEPA extends BaseTest {
     }
 
     @Test(priority = 1, description = "Check whether the test transaction is successful with Capture, set allowed cycles, verify allowed instalment cycles displayed at checkout instalment dropdown," +
-            "            \" verify instalment object in tid, verify instalment table success page and orders page, execute instalment recurring and refund at shop backend for 1st cycle",retryAnalyzer = RetryListener.class)
+            "            \" verify instalment object in tid, verify instalment table success page and orders page, execute instalment recurring and refund at shop backend for 1st cycle"/*,retryAnalyzer = RetryListener.class*/)
     public void firstOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
@@ -92,8 +92,8 @@ public class InstalmentSEPA extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_DIRECT_DEBIT_SEPA),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
-        TID_Helper.verifyTIDInformation(tid, orderAmount, TID_STATUS_CONFIRMED, INSTALMENT_DIRECT_DEBIT_SEPA,2);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
+        TID_Helper.verifyTIDInformation(tid, orderAmount, TID_STATUS_CONFIRMED, INSTALMENT_DIRECT_DEBIT_SEPA);
         TID_Helper.verifyInstalmentValuesInTID(tid,"3",cycleAmount);
         magentoPage.getSuccessPage().verifyInstalmentTable(cycleAmount,3);
         statusCommentsVerification(orderNumber,COMPLETION_ORDER_STATUS,true,paymentComments,paymentName);

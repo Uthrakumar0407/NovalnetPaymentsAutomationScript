@@ -262,7 +262,7 @@ public class OrderPage {
         clickElement(invoiceMenu);
         clickElementByRefreshing(invoiceList);
         clickElement(creditMemoBtn);
-        clickElement(refundSubmitBtn);
+        clickElementWithJs(refundSubmitBtn);
         waitForElementVisible(By.cssSelector("#messages .message-success"),30);
     }
 
@@ -281,7 +281,7 @@ public class OrderPage {
     @Step("Verify Instalment table values in the order history page")
     public void verifyInstalmentTable(String tid, int numberOfCycles, String cycleAmount){
         openInstalmentMenu();
-        Map<String,String> cycleDates = getUpcomingMonthDates(numberOfCycles,"MMMM d, yyyy");
+        Map<String,String> cycleDates = getUpcomingMonthDates(numberOfCycles,"yyyy-MM-dd");
         System.out.println(cycleDates);
         boolean cycleDatesExist = getElement(instalmentTable).findElements(By.cssSelector("tr td:nth-of-type(4)"))
                 .stream()
@@ -299,7 +299,7 @@ public class OrderPage {
 
     @Step("Verify instalment cancel button displayed expected {0}")
     public void verifyInstalmentCancelButtonDisplayed(boolean expected){
-        verifyEquals(checkElementDisplayed(By.cssSelector("#container input[value='Instalment cancel']")),expected,"Verify Instalment cancel button displayed");
+        verifyEquals(checkElementDisplayed(By.xpath("(//button[@value='CANCEL_ALL_CYCLES'])[1]")),expected,"Verify Instalment cancel button displayed");
     }
 
     @Step("Execute instalment cancel via shop backend")
@@ -313,8 +313,8 @@ public class OrderPage {
 
     @Step("Verify instalment tid displayed for the cycle {0} and tid {1}")
     public void verifyInstalmentTableTIDPresent(int whichCycle, String tid){
-        String css = "#container table.paymnet-summary-information-table tr:nth-of-type("+(whichCycle+1)+") td:nth-of-type(6)";
-        verifyEquals(getElementText(By.cssSelector(css)),tid,"Verify Instalment recurring tid "+tid+" displayed for the cycle "+whichCycle );
+        String xpath = "//table[@class='admin__table-secondary paymnet-summary-information-table']//tr["+(whichCycle+1)+"]/td[2]";
+        verifyEquals(getElementText(By.xpath(xpath)),tid,"Verify Instalment recurring tid "+tid+" displayed for the cycle "+whichCycle );
     }
 
     @Step("Verify instalment refund button displayed for the cycle {0}")

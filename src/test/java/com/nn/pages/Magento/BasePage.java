@@ -102,7 +102,7 @@ public class BasePage {
         magentoPage.getOrderPage().openInstalmentMenu();
         if(!nextCycleDate.isBlank()){
             Date cycleDate = DriverActions.getDateFromString("yyyy-MM-dd HH:mm:SS", nextCycleDate);
-            magentoPage.getOrderPage().verifyInstalmentInformation(cycleAmount,paid,remaining,DriverActions.changePatternOfDate("MMMM d, yyyy",cycleDate));
+            magentoPage.getOrderPage().verifyInstalmentInformation(cycleAmount,paid,remaining,DriverActions.changePatternOfDate("yyyy-MM-dd",cycleDate));
         }
         else
             magentoPage.getOrderPage().verifyInstalmentInformation(cycleAmount,paid,remaining);

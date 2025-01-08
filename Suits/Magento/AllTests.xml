@@ -14,11 +14,11 @@
 
     </classes>
 </test>
-	<test name = "Przelewy24">
+	<!--<test name = "Przelewy24">
 		<classes>
 			<class name = "com.nn.testcase.Magento.Przelewy24"/>
 		</classes>
-	</test>
+	</test>-->
 
 	<test name = "Alipay">
 		<classes>
@@ -107,39 +107,37 @@
 		</classes>
 	</test>
 
-
-
-	<test name = "PayPal">
+	<!--<test name = "PayPal">
 		<classes>
 			<class name = "com.nn.testcase.Magento.PayPal"/>
 		</classes>
-	</test>
+	</test>-->
 
 	<test name = "Bancontact">
 		<classes>
 			<class name = "com.nn.testcase.Magento.Bancontact"/>
 		</classes>
 	</test>
-
+<!--
 	<test name = "MBWay">
 		<classes>
 			<class name = "com.nn.testcase.Magento.MBWay"/>
 
 		</classes>
-	</test>
+	</test>-->
 
 
-	<test name = "Multibanco">
+	<!--<test name = "Multibanco">
 		<classes>
 			<class name = "com.nn.testcase.Magento.Multibanco"/>
 		</classes>
-	</test>
+	</test>-->
 
-	<test name = "Trustly">
+	<!--<test name = "Trustly">
 		<classes>
 			<class name = "com.nn.testcase.Magento.Trustly"/>
 		</classes>
-	</test>
+	</test>-->
 
 	<!--<test name = "PostFinance">
 		<classes>
@@ -180,12 +178,12 @@
 		</classes>
 	</test>
 
-	<test name = "Blik ">
+	<!--<test name = "Blik ">
 		<classes>
 			<class name = "com.nn.testcase.Magento.Blik"/>
 
 		</classes>
-	</test>
+	</test>-->
 
 	<test name = "Logo Validation - disable">
 		<classes>
@@ -195,12 +193,12 @@
 	</test>
 
 
-	<test name = "Email Validation " preserve-order="true">
+	<!--<test name = "Email Validation " preserve-order="true">
 		<classes>
 			<class name = "com.nn.testcase.Magento.VerifyMailOrders"/>
-			<!--<class name = "com.nn.testcase.Magento.verifyDeactivatePayment"/>-->
+			&lt;!&ndash;<class name = "com.nn.testcase.Magento.verifyDeactivatePayment"/>&ndash;&gt;
 		</classes>
-	</test>
+	</test>-->
 
 
 

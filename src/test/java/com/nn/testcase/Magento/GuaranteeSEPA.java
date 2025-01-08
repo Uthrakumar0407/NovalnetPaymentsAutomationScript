@@ -60,7 +60,7 @@ public class GuaranteeSEPA extends BaseTest {
         clearCart();
     }
 
-    @Test(priority = 9, description = "Check whether the capture is set, order placed successfully, verify token exist in the response, full refund shop backend",retryAnalyzer = RetryListener.class)
+    @Test(priority = 1, description = "Check whether the capture is set, order placed successfully, verify token exist in the response, full refund shop backend"/*,retryAnalyzer = RetryListener.class*/)
     public void firstOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
@@ -86,7 +86,7 @@ public class GuaranteeSEPA extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(GUARANTEED_DIRECT_DEBIT_SEPA),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString();
-        TID_Helper.verifyTIDInformation(tid, orderAmount, TID_STATUS_CONFIRMED, GUARANTEED_DIRECT_DEBIT_SEPA,2);
+        TID_Helper.verifyTIDInformation(tid, orderAmount, TID_STATUS_CONFIRMED, GUARANTEED_DIRECT_DEBIT_SEPA,3);
         TID_Helper.verifyPaymentTokenExist(tid);
         statusCommentsVerification(orderNumber,COMPLETION_ORDER_STATUS,true,paymentComments,paymentName);
         refundFullViaShopBackend(orderNumber,orderAmount,REFUND_ORDER_STATUS,GUARANTEED_SEPA_BOOKBACK);

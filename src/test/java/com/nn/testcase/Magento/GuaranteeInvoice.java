@@ -59,7 +59,7 @@ public class GuaranteeInvoice extends BaseTest {
         clearCart();
     }
 
-    @Test(priority = 8, description = "Check whether the transaction is successful with payment action set to Capture and full refund via shop backend executed ",retryAnalyzer = RetryListener.class)
+    @Test(priority = 1, description = "Check whether the transaction is successful with payment action set to Capture and full refund via shop backend executed "/*,retryAnalyzer = RetryListener.class*/)
     public void firstOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
