@@ -23,6 +23,7 @@
 	<test name = "Alipay">
 		<classes>
 			<class name = "com.nn.testcase.Magento.Alipay"/>
+
 		</classes>
 	</test>
 
@@ -57,7 +58,6 @@
 	<test name = "Direct Debit SEPA " preserve-order="true">
 		<classes>
 			<class name = "com.nn.testcase.Magento.DirectDebitSEPA"/>
-
 		</classes>
 	</test>
 

@@ -32,7 +32,7 @@ public class ShopUserLoginPage {
     private By currencyDropDown = By.cssSelector("#switcher-language-trigger");
 
     private By plnCurrency = By.cssSelector(".switcher-dropdown[aria-hidden='false']>li>a");
-
+    private By shippingNextBtn = By.xpath("//button[@type='submit' and contains(@class, 'continue')]");
 
 
     @Step("Load Shop End User Sign in Home Page")
@@ -124,11 +124,10 @@ public class ShopUserLoginPage {
         setText(By.cssSelector("input[name='telephone']"),"045818858555");
         clickOutsideForm();
         //waitForElementHasAttribute(By.cssSelector("tr[data-bind$='selectShippingMethod'] input"),"checked","true");
-        waitForElementHasAttribute(By.xpath("//tr[contains(@data-bind,'selectShippingMethod')]/following::input[@type='radio']"),"value","flatrate_flatrate");
-        clickElementWithJs(By.xpath("//tr[contains(@data-bind,'selectShippingMethod')]/following::input[@type='radio']"));
-        waitForElementHasAttribute(By.cssSelector("button[data-role='opc-continue"),"type","submit");
+        scrollToElement(By.xpath("//div[@id='checkout-shipping-method-load']//td[1]"));
+        clickElementByRefreshing(By.xpath("//div[@id='checkout-shipping-method-load']//td[1]"));
+        scrollToElement(By.cssSelector("button[data-role='opc-continue']"));
         waitForElementClickable(By.cssSelector("button[data-role='opc-continue']"));
-        //scrollToElement(By.xpath("button[data-role='opc-continue']"));
         clickElementWithJs(By.cssSelector("button[data-role='opc-continue']"));
     }
 
@@ -150,7 +149,11 @@ public class ShopUserLoginPage {
         setText(By.cssSelector("input[name='postcode']"),"66862");
         setText(By.cssSelector("input[name='telephone']"),"045818858555");
         clickOutsideForm();
-        waitForElementAttributeToChange(By.cssSelector("tr[data-bind$='selectShippingMethod'] input"),"checked","true");
-        clickElement(By.cssSelector("button[data-role='opc-continue']"));
+        //waitForElementAttributeToChange(By.cssSelector("tr[data-bind$='selectShippingMethod'] input"),"checked","true");
+        scrollToElement(By.xpath("//div[@id='checkout-shipping-method-load']//td[1]"));
+        clickElementByRefreshing(By.xpath("//div[@id='checkout-shipping-method-load']//td[1]"));
+        scrollToElement(By.cssSelector("button[data-role='opc-continue']"));
+        waitForElementClickable(By.cssSelector("button[data-role='opc-continue']"));
+        clickElementWithJs(By.cssSelector("button[data-role='opc-continue']"));
     }
 }

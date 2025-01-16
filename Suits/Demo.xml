@@ -10,22 +10,13 @@
 
 	<test name = "CreditCard">
 		<classes>
-			<class name = "com.nn.testcase.Magento.PrePayment">
-
+			<class name = "com.nn.testcase.Magento.iDeal">
 				<methods>
-				<!--	<include name="expiredCardProductRemain"/>
-					<include name="restrictedCardProductRemain"/>
-					<include name="insufficientFundsCardProductRemain"/>
-					<include name="redirectCardEndUserCancelProductRemain"/>
-					<include name="expiredCardProductNotRemain"/>
-					<include name="restrictedCardProductNotRemain"/>-->
-					<include name="firstOrder"/>
+					<include name="guestOrder"></include>
 				</methods>
-
 			</class>
 		</classes>
 	</test>
-
 
 </suite>
 
