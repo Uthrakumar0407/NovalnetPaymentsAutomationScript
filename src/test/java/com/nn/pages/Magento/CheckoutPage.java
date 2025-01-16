@@ -35,6 +35,7 @@ public class CheckoutPage {
 	}
 
 
+
 	private By addToCart = By.cssSelector("span.counter-number");
 	private By checkoutButton = By.xpath("//button[@id='top-cart-btn-checkout']");
 
@@ -671,10 +672,11 @@ public class CheckoutPage {
 	@Step("Place order with iDeal")
 	public SuccessPage placeOrderWithIDeal() {
 		clickPlaceOrderBtn();
-		waitForURLToBe("https://ext.pay.ideal.nl/",60);
-		clickElement(By.xpath("//button[normalize-space(text())='Select your bank']"));
-		clickElement(By.xpath("//p[text()='ABC Bank']"));
-
+		waitForURLToBe("https://r3.girogate.de/",60);
+		clickElement(By.xpath("//button[text()='Next']"));
+		clickElement(By.xpath("//button[text()='Login']"));
+        clickElement(By.xpath("//button[text()='Make Payment']"));
+		clickElement(By.xpath("//button[text()='Back to where you came from']"));
 		waitForElementVisible(orderSuccessMessage, 30);
 		return new SuccessPage();
 	}
