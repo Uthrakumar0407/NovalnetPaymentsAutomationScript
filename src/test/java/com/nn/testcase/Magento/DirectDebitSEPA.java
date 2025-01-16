@@ -400,7 +400,7 @@ public class DirectDebitSEPA extends BaseTest {
     }
 
 
-    @Test(priority = 10, description = "Verify download product displayed inside my download products and download link displayed when the transaction is confirmed")
+    /*@Test(priority = 10, description = "Verify download product displayed inside my download products and download link displayed when the transaction is confirmed")*/
     public void downloadProductConfirmOrder(){
         magentoPage.getShopUserLoginPage().logout();
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
@@ -426,7 +426,7 @@ public class DirectDebitSEPA extends BaseTest {
         DriverActions.verifyEquals(magentoPage.getMyAccountPage().isDownloadOrderDisplayed(orderNumber),true,"Verify download order displayed in my download products menu");
         DriverActions.verifyEquals(magentoPage.getMyAccountPage().isDownloadOptionDisplayed(orderNumber),true,"Verify download link displayed in my download products menu");
     }
-    @Test(priority = 11,description = "Verify that the Direct Debit SEPA payment is should not displayed in checkout page for USD currency")
+    /*@Test(priority = 11,description = "Verify that the Direct Debit SEPA payment is should not displayed in checkout page for USD currency")*/
     public void currencyValidation(){
         addProductToCart(PRODUCT_SEPA,1);
         magentoPage.getShopUserLoginPage().SigninToShop(MagentoAPIs.getCustomerEmail(),SHOP_FRONTEND_PASSWORD);

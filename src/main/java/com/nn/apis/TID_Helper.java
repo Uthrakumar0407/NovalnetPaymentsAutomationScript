@@ -333,11 +333,13 @@ public class TID_Helper {
 		String testModeInNovalnet = tidDetails.get("test_mode").toString();
 		String today = changePatternOfDate("yyyy-MM-dd", new Date());
 		String expectedDueDate = addDaysFromDate(today, dueDateInDays);
-		if(defaultDueDateInDays == 2 && (paymentNameInNovalnet.equals("GUARANTEED_DIRECT_DEBIT_SEPA") || paymentNameInNovalnet.equals("DIRECT_DEBIT_SEPA") || paymentNameInNovalnet.equals("INSTALMENT_DIRECT_DEBIT_SEPA"))){
+		if(defaultDueDateInDays == 3 && (paymentNameInNovalnet.equals("GUARANTEED_DIRECT_DEBIT_SEPA") || paymentNameInNovalnet.equals("DIRECT_DEBIT_SEPA") || paymentNameInNovalnet.equals("INSTALMENT_DIRECT_DEBIT_SEPA"))){
 			expectedDueDate = getSEPADueDate(dueDateInDays);
 		}
 		String[] keys = new String[] {"amount","status","payment_type","due_date","test_mode"};
+//		String[] actual = new String[] {tidAmountInNovalnet,tidStatusInNovalnet,paymentNameInNovalnet,dueDateNameInNovalnet,testModeInNovalnet};
 		String[] actual = new String[] {tidAmountInNovalnet,tidStatusInNovalnet,paymentNameInNovalnet,dueDateNameInNovalnet,testModeInNovalnet};
+//		String[] expected = new String[] {amount,status,paymentName,expectedDueDate,"1"};
 		String[] expected = new String[] {amount,status,paymentName,expectedDueDate,"1"};
 		printMap(keys, actual, expected);
 	}

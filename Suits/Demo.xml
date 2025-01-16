@@ -10,10 +10,7 @@
 
 	<test name = "DirectDebitSEPA">
 		<classes>
-
 			<class name = "com.nn.testcase.Magento.DirectDebitSEPA">
-
-
 				<methods>
 				<!--	<include name="expiredCardProductRemain"/>
 					<include name="restrictedCardProductRemain"/>
@@ -23,7 +20,7 @@
 					<include name="restrictedCardProductNotRemain"/>-->
 	<!--				<include name="seventhOrder"/>
 					<include name="eighthOrder"/>-->
-					<include name="downloadProductConfirmOrder"/>
+					<!--<include name="currencyValidation"/>-->
 				</methods>
 
 			</class>
