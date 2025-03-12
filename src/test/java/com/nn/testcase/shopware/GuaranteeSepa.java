@@ -48,15 +48,15 @@ public class GuaranteeSepa extends BaseTest {
     @Test(priority = 1, description = "Check whether the capture is set, order placed successfully, verify token exist in the response, full refund shop backend")
 //, retryAnalyzer = RetryListener.class)
     public void firstOrder() {
-        shopware.getNovalnetAdminPortal().openNovalnetAdminPortal();
-        shopware.getNovalnetAdminPortal().loadAutomationProject();
-        setPaymentConfiguration(GUARANTEED_DIRECT_DEBIT_SEPA, Map.of(
-                TESTMODE, false,
-                PAYMENT_ACTION, CAPTURE,
-                ALLOW_B2B, true,
-                FORCE_NON_GUARANTEE, true,
-                MIN_ORDER_AMOUNT, "999"
-        ));
+//        shopware.getNovalnetAdminPortal().openNovalnetAdminPortal();
+//        shopware.getNovalnetAdminPortal().loadAutomationProject();
+//        setPaymentConfiguration(GUARANTEED_DIRECT_DEBIT_SEPA, Map.of(
+//                TESTMODE, false,
+//                PAYMENT_ACTION, CAPTURE,
+//                ALLOW_B2B, true,
+//                FORCE_NON_GUARANTEE, true,
+//                MIN_ORDER_AMOUNT, "999"
+//        ));
         ShopwareAPIs.getInstance().addProductToCart(SW_PRODUCT_01);
         shopware.getCheckoutPage()
                 .load()

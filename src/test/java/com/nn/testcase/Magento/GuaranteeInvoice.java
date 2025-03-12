@@ -529,7 +529,7 @@ public class GuaranteeInvoice extends BaseTest {
                 .verifyInvoice_DateOfBirthDisplayed(true);
     }
 
-    @Test(priority = 24, description = "Verify that guarantee payments are not displayed on the checkout page for customers from England in a B2C context.")
+    @Test(priority = 24, description = "Verify that guarantee payments are not displayed on the checkout page for customers from France in a B2C context.")
     public void guaranteeValidation6(){
         magentoPage.getShopUserLoginPage().logout();
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
@@ -545,13 +545,13 @@ public class GuaranteeInvoice extends BaseTest {
         magentoPage.getShopUserLoginPage().SigninToShop(MagentoAPIs.getCustomerEmail(),SHOP_FRONTEND_PASSWORD);
         magentoPage.getMyAccountPage()
                 .load()
-                .changeCountry("GB");
+                .changeCountry("FR");
         navigateCheckout(MagentoAPIs.getCustomerEmail());
         magentoPage.getCheckoutPage()
                 .isPaymentDisplayed(GUARANTEED_INVOICE,false);
     }
 
-    @Test(priority = 25, description = "Verify that guarantee payments are displayed on the checkout page for customers from England in a B2B context.")
+    @Test(priority = 25, description = "Verify that guarantee payments are displayed on the checkout page for customers from France in a B2B context.")
     public void guaranteeValidation7(){
         magentoPage.getShopUserLoginPage().logout();
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
@@ -568,7 +568,7 @@ public class GuaranteeInvoice extends BaseTest {
         magentoPage.getMyAccountPage().load().setB2BBillingAddress();
         magentoPage.getMyAccountPage()
                 .load()
-                .changeCountry("GB");
+                .changeCountry("FR");
         navigateCheckout(MagentoAPIs.getCustomerEmail());
         magentoPage.getCheckoutPage()
                 .isPaymentMethodDisplayed(GUARANTEED_INVOICE)

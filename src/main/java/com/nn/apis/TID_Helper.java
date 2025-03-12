@@ -331,8 +331,9 @@ public class TID_Helper {
 		String paymentNameInNovalnet = tidDetails.get("payment_type").toString();
 		String dueDateNameInNovalnet = tidDetails.get("due_date").toString();
 		String testModeInNovalnet = tidDetails.get("test_mode").toString();
-		String today = changePatternOfDate("yyyy-MM-dd", new Date());
-		String expectedDueDate = addDaysFromDate(today, dueDateInDays);
+/*		String today = changePatternOfDate("yyyy-MM-dd", new Date());
+		String expectedDueDate = addDaysFromDate(today, dueDateInDays);*/
+		String expectedDueDate = getSEPADueDate(dueDateInDays);
 		if(defaultDueDateInDays == 3 && (paymentNameInNovalnet.equals("GUARANTEED_DIRECT_DEBIT_SEPA") || paymentNameInNovalnet.equals("DIRECT_DEBIT_SEPA") || paymentNameInNovalnet.equals("INSTALMENT_DIRECT_DEBIT_SEPA"))){
 			expectedDueDate = getSEPADueDate(dueDateInDays);
 		}

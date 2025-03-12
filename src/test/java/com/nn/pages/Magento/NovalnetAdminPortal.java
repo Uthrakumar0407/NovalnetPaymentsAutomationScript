@@ -76,7 +76,7 @@ public class NovalnetAdminPortal {
     @Step("Open Novalnet Admin Dashbaord")
     public void openNovalnetAdminPortal() {
        load();
-       login("KG06","novalnet123","1234");
+       login("KG06","Kumaravel_06","1234");
         }
 
 
@@ -97,6 +97,18 @@ public class NovalnetAdminPortal {
              clickElementWithJs(By.xpath("//img[@src='/img/english-flag.png']"));
          }
    }
+
+   /* @Step("Load Automation Project")
+    public void skipGerman() {
+        waitForElementVisible(By.cssSelector("#btn"));
+        clickElementWithJs(By.cssSelector("#btn"));
+        clickElementWithJs(By.xpath("(//*[text()='Projects'])[1]"));
+        waitForElementVisible(projectsOwnPage,60);
+        By automationProjectElement = By.cssSelector(automationProject + PROJECT_ID + "'\"]");
+        clickElementWithJs(automationProjectElement);
+        waitForElementVisible(automtionProjectDropdown,60);
+
+    }*/
 
     @Step("Load Automation Project")
     public void loadAutomationProject() {

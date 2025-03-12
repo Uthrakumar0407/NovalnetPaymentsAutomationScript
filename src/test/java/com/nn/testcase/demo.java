@@ -195,7 +195,7 @@ public class demo extends BaseTest {
         driver.manage().window().maximize();
         driver.get("https://admin.novalnet.de/");
         driver.findElement(By.cssSelector("#login_username")).sendKeys("KG06");
-        driver.findElement(By.cssSelector("#login_password")).sendKeys("novalnet123");
+        driver.findElement(By.cssSelector("#login_password")).sendKeys("Kumaravel_06");
         driver.findElement(By.cssSelector("#captcha")).sendKeys("1234");
         driver.findElement(By.cssSelector("#login_button")).click();
         new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='/products/own'] > i.fa.fa-sitemap")));

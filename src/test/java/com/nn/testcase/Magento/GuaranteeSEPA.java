@@ -417,7 +417,7 @@ public class GuaranteeSEPA extends BaseTest {
         verifyNovalnetComments(orderNumber,CANCEL_COMMENT_2);
     }
 
-    @Test(priority = 19, description = "Check whether B2B transaction confirm address is set, DOB is not displayed, order placed successfully",retryAnalyzer = RetryListener.class)
+    @Test(priority = 19, description = "Check whether B2B transaction confirm address is set, DOB is not displayed, order placed successfully"/*,retryAnalyzer = RetryListener.class*/)
     public void eleventhOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
@@ -594,7 +594,7 @@ public class GuaranteeSEPA extends BaseTest {
                 .isPaymentDisplayed(GUARANTEED_DIRECT_DEBIT_SEPA,false);
     }
 
-    @Test(priority = 26, description = "Verify that guarantee payments are displayed on the checkout page for customers from England in a B2B context.")
+    @Test(priority = 26, description = "Verify that guarantee payments are displayed on the checkout page for customers from France in a B2B context.")
     public void guaranteeValidation7(){
         magentoPage.getShopUserLoginPage().logout();
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
@@ -611,7 +611,7 @@ public class GuaranteeSEPA extends BaseTest {
         magentoPage.getMyAccountPage().load().setB2BBillingAddress();
         magentoPage.getMyAccountPage()
                 .load()
-                .changeCountry("GB");
+                .changeCountry("FR");
         navigateCheckout(MagentoAPIs.getCustomerEmail());
         magentoPage.getCheckoutPage()
                 .isPaymentMethodDisplayed(GUARANTEED_DIRECT_DEBIT_SEPA)

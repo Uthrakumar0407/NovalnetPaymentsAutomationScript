@@ -113,7 +113,7 @@ public class ShopUserLoginPage {
     public void fillCustomerDetailsForGuest(){
         if(!waitForElementVisible(By.cssSelector("#customer-email"),60,""))
             reloadPage();
-        setText(By.cssSelector("#customer-email"),"test@novalnet.com");
+        setText(By.cssSelector("#customer-email"),"dummy@gmai.com");
         setText(By.cssSelector("input[name='firstname']"),"Norbert");
         setText(By.cssSelector("input[name='lastname']"),"Maier");
         setText(By.cssSelector("input[name='street[0]']"),"9 , Hauptstr");
@@ -123,21 +123,11 @@ public class ShopUserLoginPage {
         setText(By.cssSelector("input[name='postcode']"),"66862");
         setText(By.cssSelector("input[name='telephone']"),"045818858555");
         clickOutsideForm();
-<<<<<<< HEAD
-//        waitForElementHasAttribute(By.cssSelector("tr[data-bind$='selectShippingMethod'] input"),"checked","true");
-        waitForElementHasAttribute(By.xpath("//tr[contains(@data-bind,'selectShippingMethod')]/following::input[@type='radio']"),"value","flatrate_flatrate");
-        sleep(3);
-        clickElementWithJs(By.xpath("//tr[contains(@data-bind,'selectShippingMethod')]/following::input[@type='radio']"));
-        waitForElementHasAttribute(By.cssSelector("button[data-role='opc-continue"),"type","submit");
-        waitForElementClickable(By.cssSelector("    button[data-role='opc-continue']"));
-        //scrollToElement(By.xpath("button[data-role='opc-continue']"));
-=======
         //waitForElementHasAttribute(By.cssSelector("tr[data-bind$='selectShippingMethod'] input"),"checked","true");
         scrollToElement(By.xpath("//div[@id='checkout-shipping-method-load']//td[1]"));
         clickElementByRefreshing(By.xpath("//div[@id='checkout-shipping-method-load']//td[1]"));
         scrollToElement(By.cssSelector("button[data-role='opc-continue']"));
         waitForElementClickable(By.cssSelector("button[data-role='opc-continue']"));
->>>>>>> 04f533c5fabf2fae1ecac399300ce6989ddf6567
         clickElementWithJs(By.cssSelector("button[data-role='opc-continue']"));
     }
 

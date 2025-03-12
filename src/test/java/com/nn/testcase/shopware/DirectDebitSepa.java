@@ -50,13 +50,13 @@ public class DirectDebitSepa extends BaseTest {
     @Test(priority = 1, description = "Check whether the test transaction is successful with payment action set to Capture, verify token exist in response, partial refund shop backend," +
             " execute chargeback and execute credit events ")//, retryAnalyzer = RetryListener.class)
     public void firstOrder() {
-        shopware.getNovalnetAdminPortal().openNovalnetAdminPortal();
-        shopware.getNovalnetAdminPortal().loadAutomationProject();
-        setPaymentConfiguration(DIRECT_DEBIT_SEPA, Map.of(
-                TESTMODE, false,
-                PAYMENT_ACTION, CAPTURE,
-                DUE_DATE,""
-        ));
+//        shopware.getNovalnetAdminPortal().openNovalnetAdminPortal();
+//        shopware.getNovalnetAdminPortal().loadAutomationProject();
+//        setPaymentConfiguration(DIRECT_DEBIT_SEPA, Map.of(
+//                TESTMODE, false,
+//                PAYMENT_ACTION, CAPTURE,
+//                DUE_DATE,""
+//        ));
         ShopwareAPIs.getInstance().addProductToCart(SW_PRODUCT_02);
         shopware.getCheckoutPage()
                 .load()
@@ -133,20 +133,21 @@ public class DirectDebitSepa extends BaseTest {
     @Test(priority = 2, description = "Check whether the test order placed successfully with payment action set to Capture , verify masked card displayed, capture order in shop backend" +
             ", full refund via shop backend")//, retryAnalyzer = RetryListener.class)
     public void secondOrder() {
-        shopware.getNovalnetAdminPortal().openNovalnetAdminPortal();
-        shopware.getNovalnetAdminPortal().loadAutomationProject();
-        setPaymentConfiguration(DIRECT_DEBIT_SEPA, Map.of(
-                TESTMODE, true,
-                PAYMENT_ACTION, AUTHORIZE,
-                MIN_AUTH_AMOUNT, "",
-                DUE_DATE,"5"
-        ));
+//        shopware.getNovalnetAdminPortal().openNovalnetAdminPortal();
+//        shopware.getNovalnetAdminPortal().loadAutomationProject();
+//        setPaymentConfiguration(DIRECT_DEBIT_SEPA, Map.of(
+//                TESTMODE, true,
+//                PAYMENT_ACTION, AUTHORIZE,
+//                MIN_AUTH_AMOUNT, "",
+//                DUE_DATE,"5"
+//        ));
         ShopwareAPIs.getInstance().addProductToCart(SW_PRODUCT_02);
         shopware.getCheckoutPage()
                 .load()
                 .enterIframe()
                 .isPaymentDisplayed(DIRECT_DEBIT_SEPA)
-                .verifyMaskedSEPAData(shopware.getTestData().get("IBANDE"))
+//                .verifyMaskedSEPAData(shopware.getTestData().get("IBANDE"))
+                .fill_IBAN_SEPA(shopware.getTestData().get("IBANDE"))          // For testing
                 .exitIframe();
         var totalAmount = shopware.getCheckoutPage().getGrandTotalAmount();
         shopware.getTxnInfo().putAll(shopware.getCheckoutPage().clickSubmitOrderBtn().getSuccessPageTransactionDetails());

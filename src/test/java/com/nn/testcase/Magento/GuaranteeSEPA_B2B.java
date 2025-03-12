@@ -576,7 +576,7 @@ public class GuaranteeSEPA_B2B extends BaseTest {
                 .verifySEPA_DateOfBirthDisplayed(true);
     }
 
-    @Test(priority = 25, description = "Verify that guarantee payments are not displayed on the checkout page for customers from England in a B2C context.")
+    @Test(priority = 25, description = "Verify that guarantee payments are not displayed on the checkout page for customers from France in a B2C context.")
     public void guaranteeValidation6(){
         magentoPage.getShopUserLoginPage().logout();
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
@@ -592,13 +592,13 @@ public class GuaranteeSEPA_B2B extends BaseTest {
         magentoPage.getShopUserLoginPage().SigninToShop(MagentoAPIs.getCustomerEmail(),SHOP_FRONTEND_PASSWORD);
         magentoPage.getMyAccountPage()
                 .load()
-                .changeCountry("GB");
+                .changeCountry("FR");
         navigateCheckout(MagentoAPIs.getCustomerEmail());
         magentoPage.getCheckoutPage()
                 .isPaymentDisplayed(GUARANTEED_DIRECT_DEBIT_SEPA,false);
     }
 
-    @Test(priority = 26, description = "Verify that guarantee payments are displayed on the checkout page for customers from England in a B2B context.")
+    @Test(priority = 26, description = "Verify that guarantee payments are displayed on the checkout page for customers from France in a B2B context.")
     public void guaranteeValidation7(){
         magentoPage.getShopUserLoginPage().logout();
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
@@ -615,7 +615,7 @@ public class GuaranteeSEPA_B2B extends BaseTest {
         magentoPage.getMyAccountPage().load().setB2BBillingAddress();
         magentoPage.getMyAccountPage()
                 .load()
-                .changeCountry("GB");
+                .changeCountry("FR");
         navigateCheckout(MagentoAPIs.getCustomerEmail());
         magentoPage.getCheckoutPage()
                 .isPaymentMethodDisplayed(GUARANTEED_DIRECT_DEBIT_SEPA)

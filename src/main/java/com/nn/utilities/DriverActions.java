@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -116,19 +117,16 @@ public class DriverActions {
 
 	public static String getSEPADueDate(int dueDate){
 		Log.info("Calculating SEPA due date");
-		String today = LocalDate.now().getDayOfWeek().toString();
-		if(today.equals("THURSDAY")){
-			dueDate += 2;
+		LocalDate currentDate = LocalDate.now();
+		LocalDate newDueDate= currentDate.plusDays(Math.max(dueDate,3)); //Math.max ensuring the minimum due date is 3 days
+		//the new due date should not be set in weekend days
+		if (newDueDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
+			newDueDate = newDueDate.plusDays(2); // Skip Saturday, move to Monday
+		} else if (newDueDate.getDayOfWeek() == DayOfWeek.SUNDAY) {
+			newDueDate = newDueDate.plusDays(1); // Skip Sunday, move to Monday
 		}
-		if(today.equals("FRIDAY")){
-			dueDate += 2;
-		}
-		if(today.equals("SATURDAY")){
-			dueDate += 1;
-		}
-		return LocalDate.now().plusDays(dueDate).toString();
+		return newDueDate.toString();
 	}
-
 	public static String changePatternOfDate(String pattern, Date date) {
 		SimpleDateFormat format = new SimpleDateFormat(pattern);
 		return format.format(date);

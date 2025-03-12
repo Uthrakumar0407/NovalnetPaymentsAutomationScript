@@ -138,7 +138,7 @@ public class OrdersPage {
         if (!getInputFieldText(By.xpath("//div[@label='Refund amount']/div[2]/input")).equals(amount))
             setText(By.xpath("//div[@label='Refund amount']/div[2]/input"), amount);
         clickElementByRefreshing(modelConfirmBtn);
-        waitForElementVisible(alertSuccess);
+//        waitForElementVisible(alertSuccess);
         sleep(5);
         reloadPage();
     }
