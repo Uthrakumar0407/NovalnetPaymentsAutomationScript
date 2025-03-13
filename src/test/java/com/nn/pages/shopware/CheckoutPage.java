@@ -59,7 +59,8 @@ public class CheckoutPage {
     @Step("Click submit order button")
     public CheckoutPage clickSubmitOrderBtn() {
         scrollToElement(submitOrderBtn);
-        clickElementByRefreshing(submitOrderBtn);
+        clickSomewhereShopware();
+        clickElementByRefreshingSEPA(submitOrderBtn);
         waitForSuccessPage();
         return this;
     }

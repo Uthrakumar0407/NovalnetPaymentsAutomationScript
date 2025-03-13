@@ -91,7 +91,7 @@ public class DirectDebitSEPA extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(DIRECT_DEBIT_SEPA),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString();
-        TID_Helper.verifyTIDInformation(tid, orderAmount, TID_STATUS_CONFIRMED, DIRECT_DEBIT_SEPA,3);
+        TID_Helper.verifyTIDInformation(tid, orderAmount, TID_STATUS_CONFIRMED, DIRECT_DEBIT_SEPA,0);
         TID_Helper.verifyPaymentTokenExist(tid);
         statusCommentsVerification(orderNumber,COMPLETION_ORDER_STATUS,true,paymentComments,paymentName);
         refundInvoiceTypeShopBackend(orderNumber,String.valueOf(Integer.parseInt(orderAmount)/2),PROCESSING_ORDER_STATUS,tid);
@@ -114,14 +114,15 @@ public class DirectDebitSEPA extends BaseTest {
                 TESTMODE,true,
                 PAYMENT_ACTION,AUTHORIZE,
                 MIN_AUTH_AMOUNT,"",
-                DUE_DATE,"3"
+                DUE_DATE,"5"
         ));
         addProductToCart(PRODUCT_SEPA,1);
         navigateCheckout(MagentoAPIs.getCustomerEmail());
         magentoPage.getCheckoutPage()
                 .isPaymentMethodDisplayed(DIRECT_DEBIT_SEPA)
                 .verifyMaskedSEPAData(magentoPage.getTestData().get("IBANDE"))
-//                .fill_IBAN_SEPA(magentoPage.getTestData().get("IBANDE"))
+                .clickNewCardSEPA()
+                .fill_IBAN_SEPA(magentoPage.getTestData().get("IBANDE"))
                 .clickPlaceOrderBtnForSepa();
         magentoPage.getSuccessPage().verifyNovalnetCommentsDisplayed();
         magentoPage.getTxnInfo().putAll(magentoPage.getSuccessPage().getSuccessPageTransactionDetails());
@@ -130,7 +131,7 @@ public class DirectDebitSEPA extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(DIRECT_DEBIT_SEPA),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString();
-        TID_Helper.verifyTIDInformation(tid, orderAmount, TID_STATUS_ON_HOLD, DIRECT_DEBIT_SEPA,3,0);
+        TID_Helper.verifyTIDInformation(tid, orderAmount, TID_STATUS_ON_HOLD, DIRECT_DEBIT_SEPA,5,0);
         statusCommentsVerification(orderNumber,ONHOLD_ORDER_STATUS,false,paymentComments,paymentName);
         captureOrder(orderNumber,tid);
         refundInvoiceTypeShopBackend(orderNumber,orderAmount,REFUND_ORDER_STATUS,tid);

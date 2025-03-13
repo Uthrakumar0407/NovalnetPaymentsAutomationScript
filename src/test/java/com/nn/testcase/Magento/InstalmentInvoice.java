@@ -130,7 +130,7 @@ public class InstalmentInvoice extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_INVOICE),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount+1)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_ON_HOLD, INSTALMENT_INVOICE);
         //TID_Helper.verifyBankDetails(tid, magentoPage.getSuccessPage().getSuccessPageBankDetails(magentoPage.getTxnInfo()));
         TID_Helper.verifyInstalmentCycleDatesExist(tid,false);
@@ -166,7 +166,7 @@ public class InstalmentInvoice extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_INVOICE),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount+1)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_ON_HOLD, INSTALMENT_INVOICE);
         statusCommentsVerification(orderNumber,ONHOLD_ORDER_STATUS,false,paymentComments,paymentName);
         magentoPage.getCallback().transactionCapture(tid,DriverActions.getUpcomingMonthDatesInArr(3),"1","2",DriverActions.getUpcomingMonthDate(2));
@@ -201,7 +201,7 @@ public class InstalmentInvoice extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_INVOICE),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount+1)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, orderAmount, TID_STATUS_CONFIRMED, INSTALMENT_INVOICE);
         magentoPage.getSuccessPage().verifyInstalmentTable(cycleAmount,3);
         statusCommentsVerification(orderNumber,COMPLETION_ORDER_STATUS,true,paymentComments,paymentName);
@@ -241,7 +241,7 @@ public class InstalmentInvoice extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_INVOICE),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_ON_HOLD, INSTALMENT_INVOICE);
         TID_Helper.verifyInstalmentCycleDatesExist(tid,false);
         magentoPage.getSuccessPage().verifyInstalmentTableDisplayed(false);
@@ -274,7 +274,7 @@ public class InstalmentInvoice extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_INVOICE),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_ON_HOLD, INSTALMENT_INVOICE);
         TID_Helper.verifyInstalmentCycleDatesExist(tid,false);
         magentoPage.getSuccessPage().verifyInstalmentTableDisplayed(false);
@@ -309,7 +309,7 @@ public class InstalmentInvoice extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_INVOICE),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_PENDING, INSTALMENT_INVOICE);
         TID_Helper.verifyInstalmentCycleDatesExist(tid,false);
         magentoPage.getSuccessPage().verifyInstalmentTableDisplayed(false);
@@ -344,7 +344,7 @@ public class InstalmentInvoice extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_INVOICE),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_PENDING, INSTALMENT_INVOICE);
         statusCommentsVerification(orderNumber,PENDING_ORDER_STATUS,false,paymentComments,paymentName);
         magentoPage.getCallback().transactionCancel(tid);
@@ -353,7 +353,7 @@ public class InstalmentInvoice extends BaseTest {
     }
 
     @Test(priority = 9, description = "Check whether the B2B pending to on hold to confirm test transaction is successful, b2b address set, verify dob field is hidden, verify tid status is pending, execute transaction update," +
-            " transaction capture and instalment cancel  event",retryAnalyzer = RetryListener.class)
+            " transaction capture and instalment cancel  event"/*,retryAnalyzer = RetryListener.class*/)
     public void ninthOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
@@ -378,14 +378,14 @@ public class InstalmentInvoice extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_INVOICE),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_PENDING, INSTALMENT_INVOICE);
         statusCommentsVerification(orderNumber,PENDING_ORDER_STATUS,false,paymentComments,paymentName);
         magentoPage.getCallback().transactionUpdateStatus(tid,TID_STATUS_ON_HOLD);
         verifyOrderStatus(orderNumber,ONHOLD_ORDER_STATUS);
         magentoPage.getCallback().transactionCapture(tid,DriverActions.getUpcomingMonthDatesInArr(3),"1","2",DriverActions.getUpcomingMonthDate(2));
         verifyOrderStatus(orderNumber,COMPLETION_ORDER_STATUS);
-        magentoPage.getCallback().instalmentCancel(tid);
+        magentoPage.getCallback().instalmentCancelAllCycle(tid);
         verifyNovalnetComments(orderNumber,INSTALMENT_CANCEL_COMMENT);
     }
 
@@ -415,7 +415,7 @@ public class InstalmentInvoice extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_INVOICE),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_PENDING, INSTALMENT_INVOICE);
         statusCommentsVerification(orderNumber,PENDING_ORDER_STATUS,false,paymentComments,paymentName);
         magentoPage.getCallback().transactionUpdateStatus(tid,TID_STATUS_ON_HOLD);
@@ -426,7 +426,7 @@ public class InstalmentInvoice extends BaseTest {
     }
 
     @Test(priority = 11, description = "Check whether the B2B confirm test transaction is successful, b2b confirm address is set, verify date of birth displayed, verify tid status confirmed, " +
-            " verify instalment table displayed at success and orders page, instalment cancel via shop backend",retryAnalyzer = RetryListener.class)
+            " verify instalment table displayed at success and orders page, instalment cancel via shop backend"/*,retryAnalyzer = RetryListener.class*/)
     public void eleventhOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
@@ -544,7 +544,7 @@ public class InstalmentInvoice extends BaseTest {
                 .verifyInstalmentInvoiceDateOfBirthDisplayed(true);
     }
 
-    @Test(priority = 16, description = "Verify that guarantee payments are displayed on the checkout page for customers from England in a B2C context.")
+    @Test(priority = 16, description = "Verify that guarantee payments are displayed on the checkout page for customers from France in a B2C context.")
     public void guaranteeValidation5(){
         magentoPage.getShopUserLoginPage().logout();
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
@@ -559,13 +559,13 @@ public class InstalmentInvoice extends BaseTest {
         magentoPage.getShopUserLoginPage().SigninToShop(MagentoAPIs.getCustomerEmail(),SHOP_FRONTEND_PASSWORD);
         magentoPage.getMyAccountPage()
                 .load()
-                .changeCountry("GB");
+                .changeCountry("FR");
         navigateCheckout(MagentoAPIs.getCustomerEmail());
         magentoPage.getCheckoutPage()
                 .isPaymentDisplayed(INSTALMENT_INVOICE,false);
     }
 
-    @Test(priority = 17, description = "Verify that guarantee payments are displayed on the checkout page for customers from England in a B2B context.")
+    @Test(priority = 17, description = "Verify that guarantee payments are displayed on the checkout page for customers from France in a B2B context.")
     public void guaranteeValidation6(){
         magentoPage.getShopUserLoginPage().logout();
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
@@ -581,7 +581,7 @@ public class InstalmentInvoice extends BaseTest {
         magentoPage.getMyAccountPage().load().setB2BBillingAddress();
         magentoPage.getMyAccountPage()
                 .load()
-                .changeCountry("GB");
+                .changeCountry("FR");
         navigateCheckout(MagentoAPIs.getCustomerEmail());
         magentoPage.getCheckoutPage()
                 .isPaymentMethodDisplayed(INSTALMENT_INVOICE)
@@ -596,7 +596,7 @@ public class InstalmentInvoice extends BaseTest {
         setPaymentConfiguration(INSTALMENT_INVOICE, Map.of(
                 TESTMODE,false,
                 PAYMENT_ACTION,CAPTURE,
-                ALLOW_B2B,false
+                ALLOW_B2B,true
         ));
         createCustomer(INSTALMENT_INVOICE);
         addProductToCart(PRODUCT_INSTALLMENT_INVOICE,1);
@@ -620,7 +620,7 @@ public class InstalmentInvoice extends BaseTest {
         setPaymentConfiguration(INSTALMENT_INVOICE, Map.of(
                 TESTMODE,false,
                 PAYMENT_ACTION,CAPTURE,
-                ALLOW_B2B,false
+                ALLOW_B2B,true
         ));
         createCustomer(INSTALMENT_INVOICE);
         addProductToCart(PRODUCT_INSTALLMENT_INVOICE,1);
@@ -761,7 +761,7 @@ public class InstalmentInvoice extends BaseTest {
         magentoPage.getOrderPage().verifyOrderHistoryPageStatus(COMPLETION_ORDER_STATUS);
         magentoPage.getOrderPage().verifyInvoiceCreated(true);
     }
-   // @Test(priority = 24,description = "Check whether the payment logo displayed as per admin portal configurations ",retryAnalyzer = RetryListener.class)
+    // @Test(priority = 24,description = "Check whether the payment logo displayed as per admin portal configurations ",retryAnalyzer = RetryListener.class)
     public void verifyPaymentLogo(){
         magentoPage.getShopUserLoginPage().logout();
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();

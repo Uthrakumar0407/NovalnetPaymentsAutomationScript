@@ -305,7 +305,7 @@ public class OrderPage {
     @Step("Execute instalment cancel via shop backend")
     public void instalmentCancel(String cycleAmount, String paymentType){
         openInstalmentMenu();
-        clickElement(By.cssSelector("#container input[value='Instalment cancel']"));
+        clickElement(By.xpath("(//button[contains(@value,'CANCEL_ALL_CYCLES')])[1]"));
         verifyNovalnetComments(CallbackProperties.REFUND_COMMENT_,cycleAmount);
         var tid = getNewTID(CallbackProperties.REFUND_COMMENT_,cycleAmount);
         TID_Helper.verifyTIDInformation(tid,cycleAmount,TID_STATUS_CONFIRMED,paymentType);

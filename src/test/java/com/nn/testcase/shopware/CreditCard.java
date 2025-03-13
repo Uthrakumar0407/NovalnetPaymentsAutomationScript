@@ -52,14 +52,14 @@ public class CreditCard extends BaseTest {
     @Test(priority = 1, description = "Check whether the test transaction is successful with payment action set to Capture, " +
             "Inline form set to true, using direct CC card, verifying token exist in the response, partial refund admin, chargeback and credit events ")
     public void firstOrder() {
-        /*shopware.getNovalnetAdminPortal().openNovalnetAdminPortal();
-        shopware.getNovalnetAdminPortal().loadAutomationProject();
-        setPaymentConfiguration(CREDITCARD, Map.of(
-                TESTMODE, false,
-                PAYMENT_ACTION, CAPTURE,
-                INLINE, true,
-                ENF_3D, false
-        ));*/
+//        shopware.getNovalnetAdminPortal().openNovalnetAdminPortal();
+//        shopware.getNovalnetAdminPortal().loadAutomationProject();
+//        setPaymentConfiguration(CREDITCARD, Map.of(
+//                TESTMODE, false,
+//                PAYMENT_ACTION, CAPTURE,
+//                INLINE, true,
+//                ENF_3D, false
+//        ));
         ShopwareAPIs.getInstance().addProductToCart(SW_PRODUCT_01);
         shopware.getCheckoutPage()
                 .load()

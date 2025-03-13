@@ -66,7 +66,7 @@ public class NovalnetAPIs {
 
     @Test
     public void main() {
-        getRefundTransaction("10024");
+        getRefundTransaction("10000");
     }
 
     public static LinkedHashMap<String, Object> getRefundTransaction(String orderNumber){

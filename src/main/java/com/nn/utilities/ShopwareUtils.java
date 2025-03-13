@@ -144,6 +144,7 @@ public class ShopwareUtils {
     public static final String SW_PRODUCT_01 = "SWDEMO10006"; //50 EUR
     public static final String SW_PRODUCT_02 = "SWDEMO100013"; //3 EUR
     public static final String SW_DIGITAL_PRODUCT1 = "SW10000"; //3 EUR
+    public static final String SW_PRODUCT_INS = "SWDEMO10001";
     public static final String SW_DIGITAL_PRODUCT2 = "SW10001"; //50 EUR
     public static final String SW_PRODUCT_GUEST_01 = "Main-product-free-shipping-with-highlighting/SWDEMO10006";
     public static final String SW_PRODUCT_GUEST_02 = "Main-product-with-reviews/SWDEMO100013";

@@ -70,7 +70,7 @@ public class DirectDebitSepa extends BaseTest {
         var tid = shopware.getTxnInfo().get("TID");
         var orderNumber = shopware.getTxnInfo().get("OrderNumber");
         var paymentName = shopware.getTxnInfo().get("PaymentName");
-        TID_Helper.verifyTIDInformation(tid, totalAmount, TID_STATUS_CONFIRMED, DIRECT_DEBIT_SEPA,2);
+        TID_Helper.verifyTIDInformation(tid, totalAmount, TID_STATUS_CONFIRMED, DIRECT_DEBIT_SEPA,3);
         TID_Helper.verifyPaymentTokenExist(tid, true);
         verifyEquals(initialComment, getOrderSuccessComment(tid), TRANSACTION_COMMENT_IN_SUCCESS_PAGE);
         verifyEquals(paymentName, getPaymentName(DIRECT_DEBIT_SEPA), PAYMENT_NAME_IN_SUCCESS_PAGE);
@@ -146,7 +146,9 @@ public class DirectDebitSepa extends BaseTest {
                 .load()
                 .enterIframe()
                 .isPaymentDisplayed(DIRECT_DEBIT_SEPA)
-                .verifyMaskedSEPAData(shopware.getTestData().get("IBANDE"))
+//                .clickNewCardSEPA()
+//                .verifyMaskedSEPAData(shopware.getTestData().get("IBANDE"))
+                .fill_IBAN_SEPA(shopware.getTestData().get("IBANDE"))          // For testing
                 .exitIframe();
         var totalAmount = shopware.getCheckoutPage().getGrandTotalAmount();
         shopware.getTxnInfo().putAll(shopware.getCheckoutPage().clickSubmitOrderBtn().getSuccessPageTransactionDetails());

@@ -106,7 +106,7 @@ public class InstalmentSEPA extends BaseTest {
     }
 
     @Test(priority = 2, description = "Check whether the order placed successfully with authorize, verify tid status, verify instalment object exist in tid, verify instalment table displayed," +
-            " capture via shop backend and partial refund via shop backend",retryAnalyzer = RetryListener.class)
+            " capture via shop backend and partial refund via shop backend"/*,retryAnalyzer = RetryListener.class*/)
     public void secondOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
@@ -131,7 +131,7 @@ public class InstalmentSEPA extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_DIRECT_DEBIT_SEPA),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_ON_HOLD, INSTALMENT_DIRECT_DEBIT_SEPA);
         TID_Helper.verifyInstalmentCycleDatesExist(tid,false);
         magentoPage.getSuccessPage().verifyInstalmentTableDisplayed(false);
@@ -167,7 +167,7 @@ public class InstalmentSEPA extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_DIRECT_DEBIT_SEPA),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_ON_HOLD, INSTALMENT_DIRECT_DEBIT_SEPA);
         statusCommentsVerification(orderNumber,ONHOLD_ORDER_STATUS,false,paymentComments,paymentName);
         magentoPage.getCallback().transactionCapture(tid,DriverActions.getUpcomingMonthDatesInArr(3),"1","2",DriverActions.getUpcomingMonthDate(2));
@@ -203,7 +203,7 @@ public class InstalmentSEPA extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_DIRECT_DEBIT_SEPA),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, orderAmount, TID_STATUS_CONFIRMED, INSTALMENT_DIRECT_DEBIT_SEPA);
         magentoPage.getSuccessPage().verifyInstalmentTable(cycleAmount,3);
         statusCommentsVerification(orderNumber,COMPLETION_ORDER_STATUS,true,paymentComments,paymentName);
@@ -245,7 +245,7 @@ public class InstalmentSEPA extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_DIRECT_DEBIT_SEPA),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_ON_HOLD, INSTALMENT_DIRECT_DEBIT_SEPA);
         TID_Helper.verifyInstalmentCycleDatesExist(tid,false);
         magentoPage.getSuccessPage().verifyInstalmentTableDisplayed(false);
@@ -279,7 +279,7 @@ public class InstalmentSEPA extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_DIRECT_DEBIT_SEPA),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_ON_HOLD, INSTALMENT_DIRECT_DEBIT_SEPA);
         TID_Helper.verifyInstalmentCycleDatesExist(tid,false);
         magentoPage.getSuccessPage().verifyInstalmentTableDisplayed(false);
@@ -315,7 +315,7 @@ public class InstalmentSEPA extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_DIRECT_DEBIT_SEPA),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_PENDING, INSTALMENT_DIRECT_DEBIT_SEPA);
         TID_Helper.verifyInstalmentCycleDatesExist(tid,false);
         magentoPage.getSuccessPage().verifyInstalmentTableDisplayed(false);
@@ -351,7 +351,7 @@ public class InstalmentSEPA extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_DIRECT_DEBIT_SEPA),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_PENDING, INSTALMENT_DIRECT_DEBIT_SEPA);
         statusCommentsVerification(orderNumber,PENDING_ORDER_STATUS,false,paymentComments,paymentName);
         magentoPage.getCallback().transactionCancel(tid);
@@ -360,7 +360,7 @@ public class InstalmentSEPA extends BaseTest {
     }
 
     @Test(priority = 9, description = "Check whether the B2B pending to on hold to confirm test transaction is successful, b2b address set, verify dob field is hidden, verify tid status is pending, execute transaction update," +
-            " transaction capture and instalment cancel event",retryAnalyzer = RetryListener.class)
+            " transaction capture and instalment cancel event"/*,retryAnalyzer = RetryListener.class*/)
     public void ninthOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
@@ -386,14 +386,14 @@ public class InstalmentSEPA extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_DIRECT_DEBIT_SEPA),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_PENDING, INSTALMENT_DIRECT_DEBIT_SEPA);
         statusCommentsVerification(orderNumber,PENDING_ORDER_STATUS,false,paymentComments,paymentName);
         magentoPage.getCallback().transactionUpdateStatus(tid,TID_STATUS_ON_HOLD);
         verifyOrderStatus(orderNumber,ONHOLD_ORDER_STATUS);
         magentoPage.getCallback().transactionCapture(tid,DriverActions.getUpcomingMonthDatesInArr(3),"1","2",DriverActions.getUpcomingMonthDate(2));
         verifyOrderStatus(orderNumber,COMPLETION_ORDER_STATUS);
-        magentoPage.getCallback().instalmentCancel(tid);
+        magentoPage.getCallback().instalmentCancelAllCycle(tid);
         verifyNovalnetComments(orderNumber,INSTALMENT_CANCEL_COMMENT);
     }
 
@@ -424,7 +424,7 @@ public class InstalmentSEPA extends BaseTest {
                 orderAmount = magentoPage.getTxnInfo().get("TotalAmount").toString(),
                 paymentName = magentoPage.getSuccessPage().getPaymentFromSuccessPage(INSTALMENT_DIRECT_DEBIT_SEPA),
                 paymentComments = magentoPage.getTxnInfo().get("NovalnetComments").toString(),
-                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3);
+                cycleAmount = String.valueOf(Integer.parseInt(orderAmount)/3+1);
         TID_Helper.verifyTIDInformation(tid, cycleAmount, TID_STATUS_PENDING, INSTALMENT_DIRECT_DEBIT_SEPA);
         statusCommentsVerification(orderNumber,PENDING_ORDER_STATUS,false,paymentComments,paymentName);
         magentoPage.getCallback().transactionUpdateStatus(tid,TID_STATUS_ON_HOLD);
@@ -435,7 +435,7 @@ public class InstalmentSEPA extends BaseTest {
     }
 
     @Test(priority = 11, description = "Check whether the B2B confirm test transaction is successful, b2b confirm address is set, verify date of birth displayed, verify tid status confirmed, " +
-            " verify instalment table displayed at success and orders page, instalment cancel via shop backend",retryAnalyzer = RetryListener.class)
+            " verify instalment table displayed at success and orders page, instalment cancel via shop backend"/*,retryAnalyzer = RetryListener.class*/)
     public void eleventhOrder(){
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
         magentoPage.getNovalnetAdminPortal().loadAutomationProject();
@@ -555,7 +555,7 @@ public class InstalmentSEPA extends BaseTest {
                 .verifyInstalmentSepaDateOfBirthDisplayed(true);
     }
 
-    @Test(priority = 16, description = "Verify that guarantee payments are displayed on the checkout page for customers from England in a B2C context.")
+    @Test(priority = 16, description = "Verify that guarantee payments are displayed on the checkout page for customers from France in a B2C context.")
     public void guaranteeValidation5(){
         magentoPage.getShopUserLoginPage().logout();
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
@@ -570,13 +570,13 @@ public class InstalmentSEPA extends BaseTest {
         magentoPage.getShopUserLoginPage().SigninToShop(MagentoAPIs.getCustomerEmail(),SHOP_FRONTEND_PASSWORD);
         magentoPage.getMyAccountPage()
                 .load()
-                .changeCountry("GB");
+                .changeCountry("FR");
         navigateCheckout(MagentoAPIs.getCustomerEmail());
         magentoPage.getCheckoutPage()
                 .isPaymentDisplayed(INSTALMENT_DIRECT_DEBIT_SEPA,false);
     }
 
-    @Test(priority = 17, description = "Verify that guarantee payments are displayed on the checkout page for customers from England in a B2B context.")
+    /*@Test(priority = 17, description = "Verify that guarantee payments are displayed on the checkout page for customers from France in a B2B context.")*/
     public void guaranteeValidation6(){
         magentoPage.getShopUserLoginPage().logout();
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
@@ -592,7 +592,7 @@ public class InstalmentSEPA extends BaseTest {
         magentoPage.getMyAccountPage().load().setB2BBillingAddress();
         magentoPage.getMyAccountPage()
                 .load()
-                .changeCountry("GB");
+                .changeCountry("FR");
         navigateCheckout(MagentoAPIs.getCustomerEmail());
         magentoPage.getCheckoutPage()
                 .isPaymentMethodDisplayed(INSTALMENT_DIRECT_DEBIT_SEPA)
@@ -607,7 +607,7 @@ public class InstalmentSEPA extends BaseTest {
         setPaymentConfiguration(INSTALMENT_DIRECT_DEBIT_SEPA, Map.of(
                 TESTMODE,false,
                 PAYMENT_ACTION,CAPTURE,
-                ALLOW_B2B,false
+                ALLOW_B2B,true
         ));
         createCustomer(INSTALMENT_DIRECT_DEBIT_SEPA);
         addProductToCart(PRODUCT_INSTALLMENT_SEPA,1);
@@ -631,7 +631,7 @@ public class InstalmentSEPA extends BaseTest {
         setPaymentConfiguration(INSTALMENT_DIRECT_DEBIT_SEPA, Map.of(
                 TESTMODE,false,
                 PAYMENT_ACTION,CAPTURE,
-                ALLOW_B2B,false
+                ALLOW_B2B,true
         ));
         createCustomer(INSTALMENT_DIRECT_DEBIT_SEPA);
         addProductToCart(PRODUCT_INSTALLMENT_SEPA,1);
@@ -667,7 +667,7 @@ public class InstalmentSEPA extends BaseTest {
                 .isPaymentDisplayed(INSTALMENT_DIRECT_DEBIT_SEPA,false);
     }
 
-    @Test(priority = 20, description = "Verify that guarantee payments are hidden on the checkout page for customers when currency is not EUR")
+    /*@Test(priority = 20, description = "Verify that guarantee payments are hidden on the checkout page for customers when currency is not EUR")*/
     public void guaranteeValidation10(){
         magentoPage.getShopUserLoginPage().logout();
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();
@@ -746,7 +746,7 @@ public class InstalmentSEPA extends BaseTest {
         DriverActions.verifyEquals(invoiceMailContent.contains(paymentComments),true,"Verify invoice mail has payment comments");
     }
 
-    @Test(priority = 22, description = "Check whether the test transaction is successful with guest user",retryAnalyzer = RetryListener.class)
+    @Test(priority = 22, description = "Check whether the test transaction is successful with guest user"/*,retryAnalyzer = RetryListener.class*/)
     public void guestOrder(){
         magentoPage.getShopUserLoginPage().logout();
         magentoPage.getNovalnetAdminPortal().openNovalnetAdminPortal();

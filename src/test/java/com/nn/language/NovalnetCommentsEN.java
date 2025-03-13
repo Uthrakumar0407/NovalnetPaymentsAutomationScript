@@ -151,7 +151,7 @@ public static String getZeroAmountBookedCommentACH(String orderNumber) {
                 "BIC: " + tidResponse.get("transaction.bank_details.bic") + "\n" +
                 "\n" +
                 "Please use any of the following payment references when transferring the amount. This is necessary to match it with your corresponding order\n" +
-                "Payment Reference 1: TID " + tid + "\n" +
+                "Payment Reference 1: " + tid + "\n" +
                 "Payment Reference 2: BNR-" + Constants.PROJECT_ID + "-" + orderNum;
     }
     public static String getOrderInstalmentInvoiceUpdateComment(String tid, String totalAmount) {

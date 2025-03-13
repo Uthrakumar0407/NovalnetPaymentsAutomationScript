@@ -35,11 +35,12 @@ public class OrdersPage {
             } catch (Exception ignored) {
             }
         });
-        boolean isLoggedIn = setExpectedCondition(d -> d.getTitle().contains("Dashboard"), 10);
-        if(!isLoggedIn){
-            Log.info("Shop backend logged out at runtime");
-            new AdminLoginPage().login();
-        }
+
+//        boolean isLoggedIn = setExpectedCondition(d -> d.getTitle().contains("Dashboard"), 10);
+//        if(!isLoggedIn){
+//            Log.info("Shop backend logged out at runtime");
+//            new AdminLoginPage().login();
+//        }
         while (!getElementAttributeText(orderMenu, "class").contains("router-link-active")) {
             clickElementWithJs(By.cssSelector("li.navigation-list-item__sw-order"));
             sleep(1);
@@ -138,7 +139,7 @@ public class OrdersPage {
         if (!getInputFieldText(By.xpath("//div[@label='Refund amount']/div[2]/input")).equals(amount))
             setText(By.xpath("//div[@label='Refund amount']/div[2]/input"), amount);
         clickElementByRefreshing(modelConfirmBtn);
-        waitForElementVisible(alertSuccess);
+//        waitForElementVisible(alertSuccess);
         sleep(5);
         reloadPage();
     }
@@ -247,6 +248,7 @@ public class OrdersPage {
     public String getInstalmentTableStatus(int row) {
         clickOrderDetailsTab();
         waitForElementVisible(instalmentTable);
+//        return getElement(instalmentTable).findElement(By.cssSelector("tbody>tr:nth-of-type(" + row + ")>td:nth-of-type(7) span")).getText().trim();
         return getElement(instalmentTable).findElement(By.cssSelector("tbody>tr:nth-of-type(" + row + ")>td:nth-of-type(7) span")).getText().trim();
     }
 

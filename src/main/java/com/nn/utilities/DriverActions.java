@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -113,20 +114,16 @@ public class DriverActions {
     public static String addDaysFromDate(String date,int addDays) {
 		return LocalDate.parse(date).plusDays(addDays).toString();
 	}
-
-	public static String getSEPADueDate(int dueDate){
-		Log.info("Calculating SEPA due date");
-		String today = LocalDate.now().getDayOfWeek().toString();
-		if(today.equals("THURSDAY")){
-			dueDate += 2;
+	public static String getSEPADueDate(int dueDate) {
+		LocalDate currentDate = LocalDate.now();
+		LocalDate newDueDate= currentDate.plusDays(Math.max(dueDate,3));
+		//the new due date should not be set in weekend days
+		if (newDueDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
+			newDueDate = newDueDate.plusDays(2); // Skip Saturday, move to Monday
+		} else if (newDueDate.getDayOfWeek() == DayOfWeek.SUNDAY) {
+			newDueDate = newDueDate.plusDays(1); // Skip Sunday, move to Monday
 		}
-		if(today.equals("FRIDAY")){
-			dueDate += 2;
-		}
-		if(today.equals("SATURDAY")){
-			dueDate += 1;
-		}
-		return LocalDate.now().plusDays(dueDate).toString();
+		return newDueDate.toString();
 	}
 
 	public static String changePatternOfDate(String pattern, Date date) {
@@ -555,6 +552,28 @@ public class DriverActions {
 			try {
 				driver().findElement(by).click();
 				flag = true;
+				System.out.println("=========================================isClicked ====== ===================================================================================");
+				Log.info("Element is clicked "+by);
+				break;
+			} catch (Exception e) {
+				wait--;
+				Log.info("Unable to Click Element : " + by + " because of " + e.getClass().getSimpleName() + ". So Retrying to click");
+				sleep(1.5);
+			}
+		}
+		if(!flag)
+			Assert.fail("Timeout waiting for element to click "+by);
+	}
+
+	@Step("Click element {0}")
+	public static void clickElementByRefreshingSEPA(By by) {
+		long wait = EXPLICIT_TIMEOUT;
+		boolean flag = false;
+		while(wait > 0) {
+			try {
+				driver().findElement(by).click();
+				flag = true;
+				System.out.println("=========================================isClicked ====== ===================================================================================");
 				Log.info("Element is clicked "+by);
 				break;
 			} catch (Exception e) {
@@ -1204,7 +1223,9 @@ public class DriverActions {
     public static void clickSomewhere() {
 		new Actions(driver()).moveByOffset(0, 0).click().build().perform();
     }
-
+	public static void clickSomewhereShopware() {
+		new Actions(driver()).moveByOffset(100, 100).click().build().perform();
+	}
 	public static void clickOutsideForm() {
 		WebElement body = driver().findElement(By.tagName("body"));
 		Actions actions = new Actions(driver());

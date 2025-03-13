@@ -8,24 +8,14 @@
 		<listener class-name="io.qameta.allure.testng.AllureTestNg"/>
 	</listeners>
 
-	<test name = "DirectDebitSEPA">
+	<test name = "Regression">
 		<classes>
-
-			<class name = "com.nn.testcase.Magento.DirectDebitSEPA">
+			<class name = "com.nn.testcase.shopware.DirectDebitSepa">
 				<methods>
-				<!--	<include name="expiredCardProductRemain"/>
-					<include name="restrictedCardProductRemain"/>
-					<include name="insufficientFundsCardProductRemain"/>
-					<include name="redirectCardEndUserCancelProductRemain"/>
-					<include name="expiredCardProductNotRemain"/>
-					<include name="restrictedCardProductNotRemain"/>-->
-	<!--				<include name="seventhOrder"/>
-					<include name="eighthOrder"/>-->
-					<!--<include name="currencyValidation"/>-->
-					<include name="guestOrder"></include>
-
+<!--					<include name="firstOrder"/>-->
+					<include name="firstOrder"/>
 				</methods>
-			</class>
+         </class>
 		</classes>
 	</test>
 

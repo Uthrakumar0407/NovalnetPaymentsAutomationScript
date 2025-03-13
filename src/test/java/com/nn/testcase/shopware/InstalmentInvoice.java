@@ -60,7 +60,7 @@ public class InstalmentInvoice extends BaseTest {
                 ALLOW_B2B,true,
                 MIN_ORDER_AMOUNT,"1998"
         ),allowedInstalmentCycles);
-        ShopwareAPIs.getInstance().addProductToCart(SW_PRODUCT_01);
+        ShopwareAPIs.getInstance().addProductToCart(SW_PRODUCT_INS);
         shopware.getCheckoutPage()
                 .load()
                 .enterIframe()
@@ -147,7 +147,7 @@ public class InstalmentInvoice extends BaseTest {
                 MIN_AUTH_AMOUNT,"",
                 ALLOW_B2B,true
         ));
-        ShopwareAPIs.getInstance().addProductToCart(SW_PRODUCT_01);
+        ShopwareAPIs.getInstance().addProductToCart(SW_PRODUCT_INS);
         shopware.getCheckoutPage()
                 .load()
                 .enterIframe()

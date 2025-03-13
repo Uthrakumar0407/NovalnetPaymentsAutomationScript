@@ -476,7 +476,6 @@ private String login(){
         }
     }
 
-
     private void validateResponseStatusCode(Response response, String message){
         if(response.getStatusCode() != 200){
             throw new ShopwareExceptions(message+response.asPrettyString());
@@ -550,7 +549,7 @@ private String login(){
                         "    \"zipcode\": \"66862\",\n" +
                         "    \"city\": \"Kaiserslautern\",\n" +
                         "    \"countryId\": \"" + countryState[0] + "\",\n" +
-                        "    \"countryStateId\": \"" + countryState[1] + "\"\n" +
+                    /*    "    \"countryStateId\": \"" + countryState[1] + "\"\n" +*/
                         "  }\n" +
                         "}";
             case ALIPAY:
@@ -568,7 +567,7 @@ private String login(){
                         "    \"zipcode\": \"66862\",\n" +
                         "    \"city\": \"Beijing\",\n" +
                         "    \"countryId\": \"" + countryState[0] + "\",\n" +
-                        "    \"countryStateId\": \"" + countryState[1] + "\"\n" +
+                     /*   "    \"countryStateId\": \"" + countryState[1] + "\"\n" +*/
                         "  }\n" +
                         "}";
             case BANCONTACT:
@@ -586,7 +585,7 @@ private String login(){
                         "    \"zipcode\": \"66862\",\n" +
                         "    \"city\": \"Kaiserslautern\",\n" +
                         "    \"countryId\": \"" + countryState[0] + "\",\n" +
-                        "    \"countryStateId\": \"" + countryState[1] + "\"\n" +
+                   /*     "    \"countryStateId\": \"" + countryState[1] + "\"\n" +*/
                         "  }\n" +
                         "}";
             case POSTFINANCE_CARD:
@@ -603,7 +602,7 @@ private String login(){
                         "    \"zipcode\": \"66862\",\n" +
                         "    \"city\": \"Kaiserslautern\",\n" +
                         "    \"countryId\": \"" + countryState[0] + "\",\n" +
-                        "    \"countryStateId\": \"" + countryState[1] + "\"\n" +
+                /*        "    \"countryStateId\": \"" + countryState[1] + "\"\n" +*/
                         "  }\n" +
                         "}";
             case PRZELEWY24:
