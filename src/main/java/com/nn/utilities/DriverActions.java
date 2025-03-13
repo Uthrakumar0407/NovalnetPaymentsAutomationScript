@@ -114,15 +114,42 @@ public class DriverActions {
     public static String addDaysFromDate(String date,int addDays) {
 		return LocalDate.parse(date).plusDays(addDays).toString();
 	}
+//	public static String getSEPADueDate(int dueDate) {
+//		LocalDate currentDate = LocalDate.now();
+//		LocalDate newDueDate= currentDate.plusDays(Math.max(dueDate,3));
+//		//the new due date should not be set in weekend days
+//		if (newDueDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
+//			newDueDate = newDueDate.plusDays(2); // Skip Saturday, move to Monday
+//		} else if (newDueDate.getDayOfWeek() == DayOfWeek.SUNDAY) {
+//			newDueDate = newDueDate.plusDays(1); // Skip Sunday, move to Monday
+//		}
+//		return newDueDate.toString();
+//	}
+
 	public static String getSEPADueDate(int dueDate) {
 		LocalDate currentDate = LocalDate.now();
-		LocalDate newDueDate= currentDate.plusDays(Math.max(dueDate,3));
-		//the new due date should not be set in weekend days
-		if (newDueDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
-			newDueDate = newDueDate.plusDays(2); // Skip Saturday, move to Monday
-		} else if (newDueDate.getDayOfWeek() == DayOfWeek.SUNDAY) {
-			newDueDate = newDueDate.plusDays(1); // Skip Sunday, move to Monday
+
+		// Ensure minimum due date is at least 3 days from today
+		LocalDate newDueDate = currentDate.plusDays(Math.max(dueDate, 3));
+
+		// Ensure there are at least 2 working days between current date and due date
+		int workingDays = 0;
+		LocalDate tempDate = currentDate;
+		while (workingDays <= 2) {
+			tempDate = tempDate.plusDays(1);
+			if (tempDate.getDayOfWeek() != DayOfWeek.SATURDAY && tempDate.getDayOfWeek() != DayOfWeek.SUNDAY) {
+				workingDays++;
+			}
 		}
+		// Ensure due date is after the min 2 working days
+		if (newDueDate.isBefore(tempDate)) {
+			newDueDate = tempDate;
+		}
+		// Ensure the due date is not on a weekend
+		while (newDueDate.getDayOfWeek() == DayOfWeek.SATURDAY || newDueDate.getDayOfWeek() == DayOfWeek.SUNDAY) {
+			newDueDate = newDueDate.plusDays(1);
+		}
+		System.out.println("Final Due Date: " + newDueDate);
 		return newDueDate.toString();
 	}
 
